@@ -19,11 +19,11 @@
       padding: 0;
     }
 
-    /* Custom Scrollbars */
+    /* Custom Futuristic Cyber Scrollbars */
     ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb { background: #0891b2; border-radius: 4px; box-shadow: 0 0 8px rgba(6,182,212,0.6); }
+    ::-webkit-scrollbar-thumb:hover { background: #00f2fe; }
 
     /* Animated Wire Dash Effect */
     @keyframes wire-dash {
@@ -33,59 +33,53 @@
     .wire-active {
       stroke-dasharray: 8 6;
       animation: wire-dash 0.9s linear infinite;
+      filter: drop-shadow(0 0 8px #00f2fe) !important;
     }
 
     /* Diagram block highlight: scale around the block's own centre */
-    #flow-svg g[id^="block-"] { transform-box: fill-box; transform-origin: center; }
-    #flow-svg g.block-active { transform: scale(1.06); }
+    #flow-svg g[id^="block-"] { transform-box: fill-box; transform-origin: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    #flow-svg g.block-active { transform: scale(1.06); filter: drop-shadow(0 0 16px #00f2fe) !important; }
 
-    /* ===================== THEME (dark = default, light = mobile-app look) ===================== */
+    /* ===================== FULLY FINTECH FUTURISTIC THEME ===================== */
     html { color-scheme: dark; }
     html.light { color-scheme: light; }
     .ui-page, .ui-header, .ui-strip, .ui-card, .ui-select, .ui-btn-nav, .ui-badge, .ui-title, .ui-theme-btn {
-      transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+      transition: background-color .25s ease, border-color .25s ease, color .25s ease, box-shadow .25s ease;
     }
     .ui-grid-bg {
-      background-image: linear-gradient(to right, #e5e7eb 1px, transparent 1px), linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-color: #030712;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.09) 0%, transparent 75%),
+        linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 24px 24px, 24px 24px;
     }
-    .ui-theme-btn { background: rgba(15,23,42,.9); border: 1px solid #334155; color: #e2e8f0; }
-    .ui-theme-btn:hover { border-color: rgba(249,115,22,.6); }
+    .ui-theme-btn { background: rgba(9, 17, 36, 0.9); border: 1px solid rgba(6, 182, 212, 0.35); color: #67e8f9; }
+    .ui-theme-btn:hover { border-color: #00f2fe; box-shadow: 0 0 12px rgba(6, 182, 212, 0.4); color: #ffffff; }
 
-    html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
-    html.light .ui-page { background: #f1f5f9; color: #0f172a; }
-    html.light .ui-header { background: #ffffff; border-color: #e2e8f0; }
-    html.light .ui-title { color: #0f172a; }
-    html.light .ui-theme-btn { background: #ffffff; border-color: #cbd5e1; color: #334155; }
-    html.light .ui-select { background: #ffffff; border-color: #cbd5e1; color: #0f172a; }
-    html.light .ui-select:hover { border-color: rgba(249,115,22,.6); }
-    html.light .ui-select:focus { border-color: #f97316; }
+    /* Light mode fallback (clean cyber-mint) */
+    html.light ::-webkit-scrollbar-thumb { background: #06b6d4; }
+    html.light .ui-page { background: #f0fdfa; color: #0f172a; }
+    html.light .ui-header { background: #ffffff; border-color: #99f6e4; }
+    html.light .ui-title { color: #042f2e; }
+    html.light .ui-theme-btn { background: #ffffff; border-color: #5eead4; color: #0d9488; }
+    html.light .ui-select { background: #ffffff; border-color: #5eead4; color: #0f172a; }
+    html.light .ui-select:hover { border-color: #0d9488; }
+    html.light .ui-select:focus { border-color: #06b6d4; }
     html.light .ui-select option { background: #ffffff; color: #0f172a; }
-    html.light .ui-strip { background: #ffffff; border-color: #e2e8f0; box-shadow: 0 1px 3px rgba(15,23,42,.08); }
-    html.light .ui-badge { background: #fff7ed; color: #ea580c; border-color: #fed7aa; }
-    html.light .ui-btn-nav { background: #0f172a; color: #ffffff; }
-    html.light .ui-btn-nav:hover { background: #334155; }
-    html.light .ui-card { background: #ffffff; border-color: #e2e8f0; box-shadow: 0 10px 30px rgba(15,23,42,.08); }
+    html.light .ui-strip { background: #ffffff; border-color: #ccfbf1; box-shadow: 0 4px 15px rgba(13, 148, 136, 0.08); }
+    html.light .ui-badge { background: #ecfeff; color: #0891b2; border-color: #a5f3fc; }
+    html.light .ui-btn-nav { background: #042f2e; color: #ffffff; }
+    html.light .ui-btn-nav:hover { background: #0f766e; }
+    html.light .ui-card { background: #ffffff; border-color: #ccfbf1; box-shadow: 0 10px 30px rgba(13, 148, 136, 0.08); }
     html.light .ui-grid-bg {
-      background-image: linear-gradient(to right, #eef2f7 1px, transparent 1px), linear-gradient(to bottom, #eef2f7 1px, transparent 1px);
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.06) 0%, transparent 75%),
+        linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+      background-size: 100% 100%, 24px 24px, 24px 24px;
     }
-
-    /* Diagram in light mode: pale tinted blocks with dark text, same accent strokes */
-    #flow-svg rect, #flow-svg text { transition: fill .25s ease; }
-    #flow-svg rect[filter] { filter: none; }
-    #svg-wires-group path:not(.wire-active) { stroke: #94a3b8; }
-    #arrow-neutral path { fill: #94a3b8; }
-    #svg-wires-group text { fill: #64748b; stroke: #f9fafb; }
-    #svg-wires-group tspan[fill] { fill: #ea580c; }
-    #block-central-switch rect { fill: #eef2ff; } #block-central-switch text { fill: #1e1b4b; }
-    #block-payer-psp rect { fill: #fff7ed; }      #block-payer-psp text { fill: #9a3412; }
-    #block-payee-psp rect { fill: #f0f9ff; }      #block-payee-psp text { fill: #075985; }
-    #block-payer-bank rect { fill: #ecfdf5; }     #block-payer-bank text { fill: #065f46; }
-    #block-payee-bank rect { fill: #faf5ff; }     #block-payee-bank text { fill: #6b21a8; }
-    #block-cl rect { fill: #eef2ff; }             #block-cl text { fill: #3730a3; }
-    #block-payer-hsm rect { fill: #f0fdfa; }      #block-payer-hsm text { fill: #0f766e; }
-    #block-payer-cbs rect { fill: #ecfdf5; }      #block-payer-cbs text { fill: #047857; }
-    #block-payee-cbs rect { fill: #faf5ff; }      #block-payee-cbs text { fill: #7e22ce; }
 
     /* Spinning Loader */
     @keyframes spinner {
@@ -100,8 +94,7 @@
       transition: all 0.1s ease-in-out;
     }
 
-
-    /* Return-to-home transition (end of every flow) */
+    /* Return-to-home transition */
     @keyframes screen-exit { from { opacity:1; transform:translateX(0) scale(1);} to { opacity:0; transform:translateX(24px) scale(0.96);} }
     @keyframes screen-enter-back { from { opacity:0; transform:translateX(-24px) scale(0.98);} to { opacity:1; transform:translateX(0) scale(1);} }
     .screen-exit { animation: screen-exit 0.35s ease-in forwards; }
@@ -122,12 +115,12 @@
     @keyframes learn-fade { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
     .learn-fade { animation: learn-fade 0.25s ease-out both; }
 
-    /* QR scanner sweep line */
+    /* Futuristic QR scanner sweep line */
     @keyframes scan-sweep { 0% { top: 0%; } 50% { top: calc(100% - 3px); } 100% { top: 0%; } }
     .scan-line {
       position: absolute; left: 0; right: 0; height: 3px; top: 0;
-      background: linear-gradient(90deg, transparent, #f97316, transparent);
-      box-shadow: 0 0 12px 3px rgba(249,115,22,.7);
+      background: linear-gradient(90deg, transparent, #00f2fe, #38bdf8, transparent);
+      box-shadow: 0 0 16px 4px rgba(0, 242, 254, 0.85);
       animation: scan-sweep 1.3s ease-in-out infinite;
     }
 
@@ -151,40 +144,66 @@
       .backend-portrait-blocker { display: flex !important; }
       .backend-landscape-workspace { display: none !important; }
     }
-/* ===================== FUTURISTIC BACKEND FLOW ===================== */
-    
-    /* 1. Deep space/cyberpunk container background */
-    .backend-box {
-      background: #050714 !important;
-      border-color: #1e293b !important;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+
+    /* ===================== FUTURISTIC CYBER PANELS ===================== */
+    .backend-box, .learn-box {
+      background: #040816 !important;
+      border: 1px solid rgba(6, 182, 212, 0.3) !important;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.12) !important;
     }
-    .backend-box .bg-gray-300 {
-      background: rgba(15, 23, 42, 0.8) !important;
+    .backend-box > div:first-child, .learn-box > div:first-child {
+      background: rgba(10, 18, 40, 0.95) !important;
       color: #38bdf8 !important;
-      border-bottom: 1px solid #1e3a8a !important;
+      border-bottom: 1px solid rgba(6, 182, 212, 0.25) !important;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
     }
 
-    /* 2. Glowing Neon Grid & Radial Nebula */
     .backend-box .ui-grid-bg {
-      background-color: #02040a;
-      background-image: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
-      background-size: 100% 100%;
-      box-shadow: inset 0 0 80px rgba(0,0,0,0.8);
+      background-color: #020510 !important;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 70%),
+        linear-gradient(to right, rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(6, 182, 212, 0.04) 1px, transparent 1px) !important;
+      background-size: 100% 100%, 20px 20px, 20px 20px !important;
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.85);
     }
 
-    /* 3. SVG Participant Boxes: Dark fill with glowing colored borders */
-    #flow-svg rect {
-      fill: #0b1120 !important; /* Dark interior to match the scheme */
-      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
+    /* Activity Center step tiles */
+    .learn-expand { display: grid; grid-template-rows: 1fr; }
+    .learn-expand.is-opening { animation: learn-open .4s ease-out both; }
+    .learn-expand > .learn-expand-inner { min-height: 0; overflow: hidden; }
+    @keyframes learn-open { from { grid-template-rows: 0fr; opacity: 0; } to { grid-template-rows: 1fr; opacity: 1; } }
+    .learn-tile { transition: filter .35s ease, opacity .35s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .learn-tile.learn-blur { filter: blur(3.5px); opacity: .45; pointer-events: none; user-select: none; }
+    .learn-tile.learn-active {
+      position: relative;
+      z-index: 10;
+      transform: scale(1.015);
+      box-shadow: 0 14px 30px -8px rgba(0, 242, 254, 0.35), 0 0 20px rgba(6, 182, 212, 0.2) !important;
     }
-    
-    /* 4. Glowing Text */
+    .learn-tile.learn-rise { animation: learn-rise .45s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes learn-rise { from { transform: translateY(16px) scale(.96); opacity: .4; } to { transform: translateY(0) scale(1.015); opacity: 1; } }
+    .api-attr-chip {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(6, 182, 212, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      text-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+    }
+
+    /* ===================== FUTURISTIC SVG PARTICIPANT BLOCKS ===================== */
+    #flow-svg rect {
+      filter: drop-shadow(0 0 8px currentColor) !important;
+    }
     #flow-svg text {
-      fill: #e2e8f0 !important;
-      text-shadow: 0 0 4px rgba(255,255,255,0.3);
+      fill: #f1f5f9 !important;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.35) !important;
     }
     #flow-svg .seq-title {
       fill: #38bdf8 !important;
@@ -194,93 +213,57 @@
       text-transform: uppercase;
     }
 
-    /* 5. Faint neon lifelines */
-    #seq-lifelines line {
-      stroke: rgba(56, 189, 248, 0.4) !important;
-      stroke-dasharray: 4 6 !important;
-    }
+    #block-central-switch rect { fill: #130728 !important; stroke: #c084fc !important; color: #c084fc; }
+    #block-central-switch text { fill: #f5d0fe !important; }
+    #block-payer-app rect      { fill: #031b26 !important; stroke: #00f2fe !important; color: #00f2fe; }
+    #block-payer-app text      { fill: #bae6fd !important; }
+    #block-cl rect             { fill: #091336 !important; stroke: #6366f1 !important; color: #6366f1; }
+    #block-cl text             { fill: #c7d2fe !important; }
+    #block-payer-psp rect      { fill: #04202c !important; stroke: #06b6d4 !important; color: #06b6d4; }
+    #block-payer-psp text      { fill: #67e8f9 !important; }
+    #block-payee-psp rect      { fill: #041e33 !important; stroke: #38bdf8 !important; color: #38bdf8; }
+    #block-payee-psp text      { fill: #bae6fd !important; }
+    #block-payer-bank rect     { fill: #022417 !important; stroke: #00f5a0 !important; color: #00f5a0; }
+    #block-payer-bank text     { fill: #6ee7b7 !important; }
+    #block-payer-hsm rect      { fill: #241804 !important; stroke: #fbbf24 !important; color: #fbbf24; }
+    #block-payer-hsm text      { fill: #fde68a !important; }
+    #block-payer-cbs rect      { fill: #03241a !important; stroke: #10b981 !important; color: #10b981; }
+    #block-payer-cbs text      { fill: #a7f3d0 !important; }
+    #block-payee-bank rect     { fill: #23072e !important; stroke: #e879f9 !important; color: #e879f9; }
+    #block-payee-bank text     { fill: #f5d0fe !important; }
+    #block-payee-cbs rect      { fill: #280a31 !important; stroke: #d946ef !important; color: #d946ef; }
+    #block-payee-cbs text      { fill: #f5d0fe !important; }
 
-    /* 6. Arrow Wires & Labels */
-    #svg-wires-group path {
-      filter: drop-shadow(0 0 4px currentColor);
-    }
-    #svg-wires-group text {
-      fill: #cbd5e1 !important;
-      stroke: #02040a !important; /* Dark outline for readability */
-      stroke-width: 3px !important;
-    }
+    #svg-wires-group path:not(.wire-active) { stroke: #1e3a5f !important; }
+    #arrow-neutral path { fill: #38bdf8 !important; }
+    #arrow-active path { fill: #00f2fe !important; }
+    #svg-wires-group text { fill: #67e8f9 !important; stroke: #040816 !important; stroke-width: 4px !important; }
+    #svg-wires-group tspan[fill] { fill: #00f2fe !important; }
     #svg-wires-group text.seq-label-active {
-      fill: #f97316 !important;
-      stroke: #000000 !important;
-      text-shadow: 0 0 8px #f97316;
+      fill: #00f2fe !important;
+      text-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe !important;
     }
-
-    /* ===== Learn panel: active step covers 80% (middle) and blurs the other 20% ===== */
-    /* tiles expand in place to fit their content; the active tile animates open */
-    .learn-expand { display: grid; grid-template-rows: 1fr; }
-    .learn-expand.is-opening { animation: learn-open .4s ease-out both; }
-    .learn-expand > .learn-expand-inner { min-height: 0; overflow: hidden; }
-    @keyframes learn-open { from { grid-template-rows: 0fr; opacity: 0; } to { grid-template-rows: 1fr; opacity: 1; } }
-    .learn-tile { transition: filter .35s ease, opacity .35s ease, background-color .25s ease, border-color .25s ease; }
-    .learn-tile.learn-blur { filter: blur(3.5px); opacity: .5; pointer-events: none; user-select: none; }
-    .learn-tile.learn-active { position: relative; z-index: 10; transform: scale(1.015); box-shadow: 0 14px 30px -8px rgba(249,115,22,.35), 0 6px 12px -6px rgba(15,23,42,.25); }
-    .learn-tile.learn-rise { animation: learn-rise .45s cubic-bezier(.2,.8,.2,1) both; }
-    @keyframes learn-rise { from { transform: translateY(16px) scale(.96); opacity: .4; } to { transform: translateY(0) scale(1.015); opacity: 1; } }
-    .api-attr-chip { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; padding: 2px 6px; border-radius: 6px; background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
-
-    /* ===== Backend flow: colour scheme taken only from the reference image ===== */
-    .backend-box { background: #050818 !important; }
-    .backend-box .ui-grid-bg {
-      background-color: #040716 !important;
-      background-image: radial-gradient(circle at 50% 45%, rgba(56,189,248,0.10) 0%, transparent 65%) !important;
-      background-size: 100% 100% !important;
-    }
-    .backend-box #flow-svg g[id^="block-"] rect { filter: drop-shadow(0 0 8px currentColor) !important; }
-    .backend-box #flow-svg g[id^="block-"] text { fill: #f1f5f9 !important; text-shadow: 0 0 6px rgba(255,255,255,.35) !important; }
-    .backend-box #block-payer-app rect        { fill: #1a0d02 !important; stroke: #ff9f1c !important; color: #ff9f1c; }
-    .backend-box #block-payer-app text        { fill: #ffe2b8 !important; }
-    .backend-box #block-cl rect               { fill: #0a1a4f !important; stroke: #3b6cff !important; color: #3b6cff; }
-    .backend-box #block-cl text               { fill: #bfdbfe !important; }
-    .backend-box #block-payer-psp rect        { fill: #2a1205 !important; stroke: #ff8a1f !important; color: #ff8a1f; }
-    .backend-box #block-payer-psp text        { fill: #ffd1a3 !important; }
-    .backend-box #block-central-switch rect   { fill: #2a0c08 !important; stroke: #ff5a1f !important; color: #ff5a1f; }
-    .backend-box #block-central-switch text   { fill: #ffe4d6 !important; }
-    .backend-box #block-payer-bank rect       { fill: #03241a !important; stroke: #3dff9a !important; color: #3dff9a; }
-    .backend-box #block-payer-bank text       { fill: #bbf7d0 !important; }
-    .backend-box #block-payer-hsm rect        { fill: #03201f !important; stroke: #2dd4bf !important; color: #2dd4bf; }
-    .backend-box #block-payer-hsm text        { fill: #99f6e4 !important; }
-    .backend-box #block-payer-cbs rect        { fill: #03241a !important; stroke: #22c55e !important; color: #22c55e; }
-    .backend-box #block-payer-cbs text        { fill: #bbf7d0 !important; }
-    .backend-box #block-payee-psp rect        { fill: #04202e !important; stroke: #22d3ee !important; color: #22d3ee; }
-    .backend-box #block-payee-psp text        { fill: #a5f3fc !important; }
-    .backend-box #block-payee-bank rect       { fill: #230a33 !important; stroke: #c86bff !important; color: #c86bff; }
-    .backend-box #block-payee-bank text       { fill: #f0abfc !important; }
-    .backend-box #block-payee-cbs rect        { fill: #2a0a2e !important; stroke: #e879f9 !important; color: #e879f9; }
-    .backend-box #block-payee-cbs text        { fill: #f5d0fe !important; }
-    .backend-box #svg-wires-group path:not(.wire-active) { stroke: #22d3ee !important; }
-    .backend-box #arrow-neutral path { fill: #22d3ee !important; }
-    .backend-box #svg-wires-group text { fill: #a5f3fc !important; stroke: #050818 !important; }
-    .backend-box #svg-wires-group tspan[fill] { fill: #f472b6 !important; }
-
-
   </style>
 </head>
-<body class="ui-page bg-[#05070e] text-slate-100 min-h-screen flex flex-col font-sans antialiased select-none overflow-x-hidden">
+<body class="ui-page bg-[#030712] text-slate-100 min-h-screen flex flex-col font-sans antialiased select-none overflow-x-hidden">
 
   <!-- ========================================================================= -->
   <!-- TOP GLOBAL CONTROL HEADER                                                -->
   <!-- ========================================================================= -->
-  <header class="ui-header h-14 bg-[#0a0f1d] border-b border-slate-800 px-4 sm:px-6 flex items-center justify-between shrink-0 z-30">
+  <header class="ui-header h-14 bg-[#060b18]/95 backdrop-blur-md border-b border-cyan-500/25 px-4 sm:px-6 flex items-center justify-between shrink-0 z-30 shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
     <div class="flex items-center gap-3">
       <!-- NPCI logo (white chip keeps it legible in dark mode) -->
-      <div class="h-11 px-3 rounded-lg bg-white border border-slate-200/80 flex items-center justify-center shadow-md shrink-0">
+      <div class="h-11 px-3 rounded-xl bg-white/95 border border-cyan-400/40 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.3)] shrink-0">
         <img src="data:image/png;base64,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" alt="NPCI International" class="h-8 w-auto block" draggable="false" />
       </div>
       <div>
         <div class="flex items-center gap-2">
-          <h1 class="ui-title text-base font-black tracking-wide text-white">
+          <h1 class="ui-title text-base font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400">
             The UPI Experience
           </h1>
+          <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-cyan-950/80 text-cyan-400 border border-cyan-500/40 shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+            NEO // QUANTUM
+          </span>
         </div>
       </div>
     </div>
@@ -293,34 +276,34 @@
       </button>
       <label for="flow-select" class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 hidden sm:block">Flow</label>
       <div class="relative">
-        <select id="flow-select" onchange="setBackendTab(this.value)" class="ui-select appearance-none bg-slate-900/90 border border-slate-700 hover:border-orange-500/60 focus:border-orange-500 focus:outline-none text-white text-base sm:text-xs font-bold rounded-xl pl-3.5 pr-9 py-2 cursor-pointer transition">
-          <option value="pay" selected class="bg-[#0a0f1d]">Pay to VPA Flow</option>
-          <option value="mobile" class="bg-[#0a0f1d]">Pay to Mobile Number Flow</option>
-          <option value="qr" class="bg-[#0a0f1d]">QR Payment Flow</option>
-          <option value="pin" class="bg-[#0a0f1d]">Pin Set Flow</option>
-          <option value="balance" class="bg-[#0a0f1d]">Check Balance Flow</option>
+        <select id="flow-select" onchange="setBackendTab(this.value)" class="ui-select appearance-none bg-[#091124] border border-cyan-500/35 text-cyan-100 shadow-[0_0_10px_rgba(6,182,212,0.15)] hover:border-cyan-400/80 focus:border-cyan-400 focus:outline-none text-white text-base sm:text-xs font-bold rounded-xl pl-3.5 pr-9 py-2 cursor-pointer transition">
+          <option value="pay" selected class="bg-[#081024] text-cyan-100">Pay to VPA Flow</option>
+          <option value="mobile" class="bg-[#081024] text-cyan-100">Pay to Mobile Number Flow</option>
+          <option value="qr" class="bg-[#081024] text-cyan-100">QR Payment Flow</option>
+          <option value="pin" class="bg-[#081024] text-cyan-100">Pin Set Flow</option>
+          <option value="balance" class="bg-[#081024] text-cyan-100">Check Balance Flow</option>
         </select>
-        <i data-lucide="chevron-down" class="w-4 h-4 text-orange-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+        <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
       </div>
       <!-- Scenario (pay flows only): Success / Fail / Deemed, and a failure type that is active only for Fail -->
       <div id="scenario-controls" class="flex items-center gap-2 sm:gap-3">
         <label for="scenario-select" class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 hidden xl:block">Scenario</label>
         <div class="relative">
-          <select id="scenario-select" title="Scenario" onchange="setScenario(this.value)" class="ui-select appearance-none bg-slate-900/90 border border-slate-700 hover:border-orange-500/60 focus:border-orange-500 focus:outline-none text-white text-base sm:text-xs font-bold rounded-xl pl-3.5 pr-9 py-2 cursor-pointer transition">
-          <option value="success" selected class="bg-[#0a0f1d]">Success</option>
-          <option value="fail" class="bg-[#0a0f1d]">Fail</option>
-          <option value="deemed" class="bg-[#0a0f1d]">Deemed</option>
+          <select id="scenario-select" title="Scenario" onchange="setScenario(this.value)" class="ui-select appearance-none bg-[#091124] border border-cyan-500/35 text-cyan-100 shadow-[0_0_10px_rgba(6,182,212,0.15)] hover:border-cyan-400/80 focus:border-cyan-400 focus:outline-none text-white text-base sm:text-xs font-bold rounded-xl pl-3.5 pr-9 py-2 cursor-pointer transition">
+          <option value="success" selected class="bg-[#081024] text-cyan-100">Success</option>
+          <option value="fail" class="bg-[#081024] text-cyan-100">Fail</option>
+          <option value="deemed" class="bg-[#081024] text-cyan-100">Deemed</option>
         </select>
-          <i data-lucide="chevron-down" class="w-4 h-4 text-orange-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
         </div>
         <div id="failtype-wrap" class="flex items-center gap-2 sm:gap-3" style="display:none">
         <label for="failtype-select" class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 hidden xl:block">Failure type</label>
         <div class="relative">
-          <select id="failtype-select" disabled title="Active only when Scenario is Fail" onchange="setFailType(this.value)" class="disabled:opacity-40 disabled:cursor-not-allowed ui-select appearance-none bg-slate-900/90 border border-slate-700 hover:border-orange-500/60 focus:border-orange-500 focus:outline-none text-white text-base sm:text-xs font-bold rounded-xl pl-3.5 pr-9 py-2 cursor-pointer transition">
-          <option value="funds" selected class="bg-[#0a0f1d]">Insufficient funds</option>
-          <option value="pin" class="bg-[#0a0f1d]">Incorrect UPI PIN</option>
+          <select id="failtype-select" disabled title="Active only when Scenario is Fail" onchange="setFailType(this.value)" class="disabled:opacity-40 disabled:cursor-not-allowed ui-select appearance-none bg-[#091124] border border-cyan-500/35 text-cyan-100 shadow-[0_0_10px_rgba(6,182,212,0.15)] hover:border-cyan-400/80 focus:border-cyan-400 focus:outline-none text-white text-base sm:text-xs font-bold rounded-xl pl-3.5 pr-9 py-2 cursor-pointer transition">
+          <option value="funds" selected class="bg-[#081024] text-cyan-100">Insufficient funds</option>
+          <option value="pin" class="bg-[#081024] text-cyan-100">Incorrect UPI PIN</option>
         </select>
-          <i data-lucide="chevron-down" class="w-4 h-4 text-orange-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-cyan-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
         </div>
         </div>
       </div>
@@ -333,15 +316,21 @@
   <!-- START: two tiles -->
   <div id="home-tiles" class="flex-1 flex items-center justify-center p-6">
     <div class="grid gap-5 w-full max-w-2xl grid-cols-1 sm:grid-cols-2 auto-rows-fr">
-      <button onclick="openJourney()" class="home-tile ui-card h-full min-h-[200px] flex flex-col text-left rounded-3xl border border-slate-700 bg-slate-900 p-6 hover:border-orange-500 transition shadow-xl">
-        <span class="w-12 h-12 rounded-2xl bg-orange-500 text-white flex items-center justify-center mb-4"><i data-lucide="smartphone" class="w-6 h-6"></i></span>
-        <div class="text-lg font-black text-white leading-tight">1. The User Journey</div>
-        <p class="text-sm text-slate-400 mt-1 leading-relaxed">Use the interactive payer phone. Pay, scan, set PIN and check balance.</p>
+      <button onclick="openJourney()" class="home-tile ui-card h-full min-h-[200px] flex flex-col text-left rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-[#091226] via-[#060c1d] to-[#040814] p-6 hover:border-cyan-400 shadow-[0_10px_30px_rgba(0,0,0,0.6),0_0_25px_rgba(6,182,212,0.2)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.8),0_0_40px_rgba(6,182,212,0.4)] transition-all duration-300 group">
+        <div class="flex items-center justify-between mb-4">
+          <span class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 text-slate-950 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.6)] group-hover:scale-110 transition-transform"><i data-lucide="smartphone" class="w-6 h-6 stroke-[2.5]"></i></span>
+          <span class="text-[10px] font-mono tracking-widest uppercase px-2 py-1 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-500/40">INTERACTIVE</span>
+        </div>
+        <div class="text-lg font-black text-white group-hover:text-cyan-300 transition-colors leading-tight">1. The User Journey</div>
+        <p class="text-sm text-slate-400 mt-1.5 leading-relaxed">Use the interactive payer terminal. Pay, scan QR, set PIN and query live balance.</p>
       </button>
-      <button onclick="openExperience()" class="home-tile ui-card h-full min-h-[200px] flex flex-col text-left rounded-3xl border border-slate-700 bg-slate-900 p-6 hover:border-cyan-400 transition shadow-xl">
-        <span class="w-12 h-12 rounded-2xl bg-cyan-500 text-white flex items-center justify-center mb-4"><i data-lucide="network" class="w-6 h-6"></i></span>
-        <div class="text-lg font-black text-white leading-tight">2. See How it happens</div>
-        <p class="text-sm text-slate-400 mt-1 leading-relaxed">Watch each step travel through the backend flow diagram.</p>
+      <button onclick="openExperience()" class="home-tile ui-card h-full min-h-[200px] flex flex-col text-left rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-[#091724] via-[#05111b] to-[#030910] p-6 hover:border-emerald-400 shadow-[0_0_12px_#34d399] shadow-[0_10px_30px_rgba(0,0,0,0.6),0_0_25px_rgba(16,185,129,0.2)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.8),0_0_40px_rgba(16,185,129,0.4)] transition-all duration-300 group">
+        <div class="flex items-center justify-between mb-4">
+          <span class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-400 to-teal-500 text-slate-950 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.6)] group-hover:scale-110 transition-transform"><i data-lucide="network" class="w-6 h-6 stroke-[2.5]"></i></span>
+          <span class="text-[10px] font-mono tracking-widest uppercase px-2 py-1 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-500/40">MULTI-PARTY</span>
+        </div>
+        <div class="text-lg font-black text-white group-hover:text-emerald-300 transition-colors leading-tight">2. See How it happens</div>
+        <p class="text-sm text-slate-400 mt-1.5 leading-relaxed">Watch each encrypted protocol message travel across the distributed clearing topology.</p>
       </button>
     </div>
   </div>
@@ -350,13 +339,13 @@
   <div id="mode-journey" class="flex-1 flex items-start justify-center p-4 sm:p-6" style="display:none">
     <div id="ij-fit-outer" class="relative w-full max-w-[370px]" style="height:730px;">
       <div id="ij-fit" style="position:absolute;left:50%;top:0;width:370px;height:730px;transform:translateX(-50%);transform-origin:top center;">
-        <div class="w-[370px] h-[730px] rounded-[48px] p-3 bg-black border-4 border-neutral-800 shadow-2xl relative flex flex-col overflow-hidden">
+        <div class="w-[370px] h-[730px] rounded-[48px] p-3 bg-black border-4 border-slate-800 shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(6,182,212,0.18)] relative flex flex-col overflow-hidden">
           <div class="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-black border border-neutral-800 rounded-full z-40 flex items-center justify-center pointer-events-none">
             <div class="w-2.5 h-2.5 rounded-full bg-slate-800 mr-2 border border-slate-700"></div>
             <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
           </div>
-          <div class="w-full h-full bg-white rounded-[40px] overflow-hidden flex flex-col relative border border-slate-200 select-none text-slate-800">
-            <div id="ij-sms-banner" class="hidden absolute top-2 inset-x-3 z-[70] bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-slate-300 transition-transform duration-500 transform -translate-y-[150%]">
+          <div class="w-full h-full bg-[#060c1c] rounded-[40px] overflow-hidden flex flex-col relative border border-cyan-500/25 select-none text-slate-100">
+            <div id="ij-sms-banner" class="hidden absolute top-2 inset-x-3 z-[70] bg-[#0a142c]/95 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-cyan-500/40 text-slate-200 transition-transform duration-500 transform -translate-y-[150%]">
               <div class="flex items-start gap-2.5">
                 <div class="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5"><i data-lucide="message-square" class="w-4 h-4"></i></div>
                 <div class="flex-1 min-w-0">
@@ -368,7 +357,7 @@
                 </div>
               </div>
             </div>
-            <div class="h-10 pt-2 px-6 flex justify-between items-center text-[11px] font-semibold text-slate-600 z-30 bg-white">
+            <div class="h-10 pt-2 px-6 flex justify-between items-center text-[11px] font-semibold text-slate-400 z-30 bg-[#060c1c]">
               <span id="ij-phone-time">10:42</span>
               <div class="flex items-center gap-1.5">
                 <i data-lucide="signal" class="w-3 h-3 text-slate-700"></i>
@@ -376,7 +365,7 @@
                 <i data-lucide="battery-full" class="w-3.5 h-3.5 text-emerald-600"></i>
               </div>
             </div>
-            <div id="ij-container" class="flex-1 flex flex-col relative overflow-hidden bg-white"></div>
+            <div id="ij-container" class="flex-1 flex flex-col relative overflow-hidden bg-[#060c1c]"></div>
           </div>
         </div>
       </div>
@@ -387,28 +376,28 @@
   <main id="mode-experience" style="display:none" class="flex-1 flex flex-col gap-4 sm:gap-6 p-4 sm:p-6 min-h-0 overflow-y-auto xl:overflow-hidden">
 
         <!-- COMMON CONTROL HEADER (spans phone + flow diagram) -->
-        <div class="ui-strip flex flex-wrap items-center justify-between gap-2 bg-slate-900/90 backdrop-blur border border-slate-800 rounded-2xl px-3 py-2.5 z-30 shadow-md shrink-0 w-full">
+        <div class="ui-strip flex flex-wrap items-center justify-between gap-2 bg-[#081024]/90 backdrop-blur-md border border-cyan-500/30 rounded-2xl px-3.5 py-2.5 z-30 shadow-[0_4px_25px_rgba(0,0,0,0.5)] shrink-0 w-full">
           <div class="flex items-center gap-3 min-w-0 flex-1">
-            <span id="fs-step-badge" class="ui-badge px-2.5 py-1 rounded-xl bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-mono font-bold shrink-0">
+            <span id="fs-step-badge" class="ui-badge px-3 py-1 rounded-xl bg-gradient-to-r from-cyan-950/90 to-blue-950/90 text-cyan-300 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)] text-xs font-mono font-bold shrink-0">
               STEP: 0 / 20
             </span>
-            <div id="fs-step-title" class="ui-title text-sm font-bold text-white leading-snug min-w-0">
+            <div id="fs-step-title" class="ui-title text-sm font-bold text-white tracking-wide leading-snug min-w-0">
               Ready to execute flow.
             </div>
           </div>
 
           <!-- Controls: Prev, Next, Auto Simulate -->
           <div class="flex items-center gap-2 shrink-0">
-            <button onclick="stepSimulation(-1)" id="btn-prev-step" class="ui-btn-nav px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-1 transition disabled:opacity-30 disabled:pointer-events-none">
+            <button onclick="stepSimulation(-1)" id="btn-prev-step" class="ui-btn-nav px-3.5 py-1.5 rounded-xl bg-[#0c1630] hover:bg-[#122244] border border-cyan-900/60 hover:border-cyan-500/50 text-cyan-200 text-xs font-bold flex items-center gap-1 transition shadow-sm disabled:opacity-30 disabled:pointer-events-none">
               <i data-lucide="chevron-left" class="w-4 h-4"></i>
               <span>Prev</span>
             </button>
-            <button onclick="stepSimulation(1)" id="btn-next-step" class="ui-btn-nav px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-1 transition disabled:opacity-30 disabled:pointer-events-none">
+            <button onclick="stepSimulation(1)" id="btn-next-step" class="ui-btn-nav px-3.5 py-1.5 rounded-xl bg-[#0c1630] hover:bg-[#122244] border border-cyan-900/60 hover:border-cyan-500/50 text-cyan-200 text-xs font-bold flex items-center gap-1 transition shadow-sm disabled:opacity-30 disabled:pointer-events-none">
               <span>Next</span>
               <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </button>
-            <button onclick="toggleAutoSimulation()" id="btn-auto-sim" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-emerald-600 hover:opacity-95 text-white text-xs font-bold flex items-center gap-1.5 shadow-md shadow-orange-500/20 transition">
-              <i id="btn-auto-icon" data-lucide="play" class="w-3.5 h-3.5 fill-white"></i>
+            <button onclick="toggleAutoSimulation()" id="btn-auto-sim" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 hover:brightness-110 text-slate-950 text-xs font-black flex items-center gap-1.5 shadow-[0_0_20px_rgba(6,182,212,0.45)] transition active:scale-95">
+              <i id="btn-auto-icon" data-lucide="play" class="w-3.5 h-3.5 fill-slate-950"></i>
               <span id="btn-auto-text">Simulate</span>
             </button>
           </div>
@@ -428,7 +417,7 @@
       <!-- Terminal Device Outer Bezel -->
       <div id="phone-fit-outer" class="relative w-full" style="height:730px;">
           <div id="phone-fit" style="position:absolute;left:50%;top:0;width:370px;height:730px;transform:translateX(-50%);transform-origin:top center;">
-      <div class="w-[370px] h-[730px] rounded-[48px] p-3 bg-black border-4 border-neutral-800 shadow-2xl relative flex flex-col overflow-hidden">
+      <div class="w-[370px] h-[730px] rounded-[48px] p-3 bg-black border-4 border-slate-800 shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_35px_rgba(6,182,212,0.18)] relative flex flex-col overflow-hidden">
         
         <!-- Dynamic Camera Island -->
         <div class="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-black border border-neutral-800 rounded-full z-40 flex items-center justify-center pointer-events-none">
@@ -437,10 +426,10 @@
         </div>
 
         <!-- Phone Interior Screen: STRICTLY POINTER-EVENTS-NONE -->
-        <div class="w-full h-full bg-white rounded-[40px] overflow-hidden flex flex-col relative border border-slate-200 pointer-events-none select-none text-slate-800">
+        <div class="w-full h-full bg-[#060c1c] rounded-[40px] overflow-hidden flex flex-col relative border border-cyan-500/25 pointer-events-none select-none text-slate-100">
           
           <!-- Native Bank SMS Push Notification Banner -->
-          <div id="sms-push-banner" class="hidden absolute top-2 inset-x-3 z-[70] bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-xl border border-slate-300 transition-transform duration-500 transform -translate-y-[150%]">
+          <div id="sms-push-banner" class="hidden absolute top-2 inset-x-3 z-[70] bg-[#0a142c]/95 backdrop-blur-md rounded-2xl p-3 shadow-2xl border border-cyan-500/40 text-slate-200 transition-transform duration-500 transform -translate-y-[150%]">
             <div class="flex items-start gap-2.5">
               <div class="w-8 h-8 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
                 <i data-lucide="message-square" class="w-4 h-4"></i>
@@ -460,7 +449,7 @@
           </div>
 
           <!-- Status Bar -->
-          <div class="h-10 pt-2 px-6 flex justify-between items-center text-[11px] font-semibold text-slate-600 z-30 bg-white">
+          <div class="h-10 pt-2 px-6 flex justify-between items-center text-[11px] font-semibold text-slate-400 z-30 bg-[#060c1c]">
             <span id="live-phone-time">10:42</span>
             <div class="flex items-center gap-1.5">
               <i data-lucide="signal" class="w-3 h-3 text-slate-700"></i>
@@ -470,7 +459,7 @@
           </div>
 
           <!-- DYNAMIC SCREEN CONTENT CONTAINER (READ-ONLY) -->
-          <div id="phone-display-container" class="flex-1 flex flex-col relative overflow-hidden bg-white">
+          <div id="phone-display-container" class="flex-1 flex flex-col relative overflow-hidden bg-[#060c1c]">
             <!-- Content Injected Dynamically Based on Flow and Step -->
           </div>
 
@@ -488,16 +477,16 @@
     <!-- ======================================================================= -->
     <section id="sec-learn" class="flex flex-col min-h-0">
       <div class="learn-box flex-1 flex flex-col min-h-[420px] rounded-2xl overflow-hidden border border-gray-300 bg-gray-50 shadow-xl">
-        <div class="bg-gray-300 text-gray-800 px-4 py-2 text-sm font-bold border-b border-gray-400/50 shrink-0">Activity Center</div>
+        <div class="px-4 py-2.5 text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-between shrink-0"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400 shadow-[0_0_8px_#22d3ee]"></span></span><span>Activity Center // Protocol Stream</span></div><span class="text-[10px] text-cyan-500/80 font-mono tracking-widest hidden sm:inline">LIVE TELEMETRY</span></div>
         <div class="relative flex-1 min-h-0">
           <div id="learn-body" class="absolute inset-0 overflow-y-auto p-3">
             <div id="learn-list" class="relative h-full"></div>
-            <div id="learn-wip" class="hidden rounded-xl border border-amber-300 bg-amber-50 p-4 text-center">
-              <div class="inline-flex items-center gap-2 text-amber-800 font-bold text-sm">
+            <div id="learn-wip" class="hidden rounded-xl border border-amber-500/40 bg-amber-950/30 p-4 text-center">
+              <div class="inline-flex items-center gap-2 text-amber-400 font-bold text-sm">
                 <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
-                Work in Progress
+                Telemetry Stream Pending
               </div>
-              <p class="text-[11px] text-amber-700 mt-1 leading-snug">The step-by-step explanation for this flow is coming soon.</p>
+              <p class="text-[11px] text-amber-300/80 mt-1 leading-snug">The protocol step stream for this flow is being synchronized.</p>
             </div>
           </div>
         </div>
@@ -508,7 +497,7 @@
       
       <!-- Flow Diagram Card (fills the whole right pane) -->
       <div class="backend-box flex-1 min-h-[560px] xl:min-h-0 flex flex-col rounded-2xl border border-gray-300 bg-gray-50 overflow-hidden shadow-xl">
-        <div class="bg-gray-300 text-gray-800 px-4 py-2 text-sm font-bold border-b border-gray-400/50 shrink-0">Backend Flow</div>
+        <div class="px-4 py-2.5 text-xs font-mono font-bold tracking-wider uppercase flex items-center justify-between shrink-0"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span><span>UPI Multi-Party Network // Topology</span></div><span class="text-[10px] text-emerald-400/80 font-mono tracking-widest hidden sm:inline">SYNCED</span></div>
         <div class="flex-1 min-h-0 flex flex-col p-3 sm:p-5 relative ui-grid-bg">
 
         <!-- SVG Topology Canvas (viewBox is set per flow in setBackendTab) -->
@@ -516,15 +505,15 @@
           <svg id="flow-svg" class="w-full h-full" viewBox="0 30 1040 580" preserveAspectRatio="xMidYMid meet">
             <defs>
               <marker id="arrow-neutral" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
-                <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#475569" />
+                <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#38bdf8" />
               </marker>
               <marker id="arrow-active" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                <path d="M 0 1 L 10 5 L 0 9 z" fill="#f97316" />
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#00f2fe" />
               </marker>
-              <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#f97316" flood-opacity="0.6"/></filter>
-              <filter id="glow-emerald" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#10b981" flood-opacity="0.6"/></filter>
-              <filter id="glow-sky" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.6"/></filter>
-              <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#8b5cf6" flood-opacity="0.6"/></filter>
+              <filter id="glow-orange" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00f2fe" flood-opacity="0.8"/></filter>
+              <filter id="glow-emerald" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00f5a0" flood-opacity="0.8"/></filter>
+              <filter id="glow-sky" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#38bdf8" flood-opacity="0.8"/></filter>
+              <filter id="glow-purple" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#c084fc" flood-opacity="0.8"/></filter>
             </defs>
 
             <!-- Dynamic SVG Wires Group -->
@@ -666,7 +655,7 @@
           canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:50;';
           container.appendChild(canvas);
           const fire = confetti.create(canvas, { resize: true, useWorker: false });
-          fire({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+          fire({ particleCount: 85, spread: 75, origin: { y: 0.6 }, colors: ['#00f2fe', '#00f5a0', '#38bdf8', '#c084fc', '#ffffff', '#fbbf24'] });
           setTimeout(() => { try { fire.reset(); } catch (e) {} canvas.remove(); }, 4500);
         } catch (e) {
           console.warn('Confetti error:', e);
@@ -1340,9 +1329,9 @@
 
     function payHeaderHtml(P) {
       return `
-        <div class="flex items-center gap-1.5 mb-3 text-slate-800">
-          <i data-lucide="chevron-left" class="w-5 h-5 text-slate-500"></i>
-          <h3 class="text-sm font-bold">${P.screenTitle}</h3>
+        <div class="flex items-center gap-1.5 mb-3 text-slate-100">
+          <i data-lucide="chevron-left" class="w-5 h-5 text-cyan-400"></i>
+          <h3 class="text-sm font-bold tracking-wide">${P.screenTitle}</h3>
         </div>`;
     }
 
@@ -1355,25 +1344,25 @@
         ? `<span class="pr-2.5 mr-0.5 border-r border-slate-200 text-sm font-bold text-slate-600">${P.prefix}</span>` : '';
 
       container.innerHTML = `
-        <div class="h-full flex flex-col py-2 px-2 bg-slate-50">
+        <div class="h-full flex flex-col py-2 px-2 bg-[#060c1c]">
           ${payHeaderHtml(P)}
-          <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+          <div class="bg-[#0c1630] p-4 rounded-3xl border border-cyan-500/30 shadow-xl space-y-4">
             <div>
-              <span class="text-[11px] font-bold text-slate-500">${P.fieldLabel}</span>
-              <div id="pay-input-box" class="mt-2 flex items-center gap-2 rounded-2xl px-3 py-3 border-2 ${verifying ? 'border-slate-200 bg-slate-50' : 'border-orange-400 bg-white'} transition-colors">
+              <span class="text-[11px] font-bold text-cyan-300 uppercase tracking-wider">${P.fieldLabel}</span>
+              <div id="pay-input-box" class="mt-2 flex items-center gap-2 rounded-2xl px-3 py-3 border-2 ${verifying ? 'border-cyan-900/60 bg-[#070e20]' : 'border-cyan-400 bg-[#070e20] shadow-[0_0_15px_rgba(6,182,212,0.25)]'} transition-colors">
                 ${prefixHtml}
-                <span id="pay-input-text" class="font-mono text-[15px] text-slate-900 tracking-wide">${verifying ? P.input : ''}</span>
-                <span id="pay-caret" class="w-0.5 h-5 bg-orange-500 animate-pulse ${verifying ? 'hidden' : ''}"></span>
-                <span id="pay-placeholder" class="font-mono text-[13px] text-slate-400 ${verifying ? 'hidden' : ''}">${P.placeholder}</span>
+                <span id="pay-input-text" class="font-mono text-[15px] text-white tracking-wide">${verifying ? P.input : ''}</span>
+                <span id="pay-caret" class="w-0.5 h-5 bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse ${verifying ? 'hidden' : ''}"></span>
+                <span id="pay-placeholder" class="font-mono text-[13px] text-slate-500 ${verifying ? 'hidden' : ''}">${P.placeholder}</span>
               </div>
               <p class="text-[10px] text-slate-400 mt-2 leading-snug">${P.hint}</p>
             </div>
             ${verifying ? `
-              <div class="w-full py-3 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center gap-2.5">
-                <div class="w-5 h-5 border-[3px] border-orange-200 border-t-orange-500 rounded-full animate-spinner"></div>
-                <span class="text-sm font-bold text-orange-600">${P.verifyingText}</span>
+              <div class="w-full py-3 rounded-2xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center gap-2.5">
+                <div class="w-5 h-5 border-[3px] border-cyan-950 border-t-cyan-400 rounded-full animate-spinner"></div>
+                <span class="text-sm font-bold text-cyan-300">${P.verifyingText}</span>
               </div>` : `
-              <button id="sim-verify-btn" class="w-full py-3.5 rounded-2xl bg-slate-300 text-white font-bold text-sm transition-all duration-150">Verify</button>`}
+              <button id="sim-verify-btn" class="w-full py-3.5 rounded-2xl bg-slate-800 text-slate-400 font-bold text-sm transition-all duration-150">Verify</button>`}
           </div>
         </div>`;
 
@@ -1394,12 +1383,12 @@
         if (!frameLive(frame)) return;
         const btn = document.getElementById('sim-verify-btn');
         if (btn) {
-          btn.classList.remove('bg-slate-300');
-          btn.classList.add('bg-orange-500', 'shadow-lg', 'shadow-orange-500/20');
+          btn.classList.remove('bg-slate-800', 'bg-slate-300');
+          btn.classList.add('bg-gradient-to-r', 'from-cyan-500', 'via-teal-400', 'to-emerald-400', 'text-slate-950', 'font-black', 'shadow-[0_0_20px_rgba(6,182,212,0.4)]'); btn.classList.remove('text-slate-400');
         }
         await sleep(350);
         if (!frameLive(frame)) return;
-        pressButton(document.getElementById('sim-verify-btn'), ['bg-orange-600']);
+        pressButton(document.getElementById('sim-verify-btn'), ['brightness-110']);
       })();
     }
 
@@ -1431,7 +1420,7 @@
     // Screen: camera viewfinder, scan line sweeps over the QR, then "QR detected"
     function renderQrScanScreen(frame) {
       const container = document.getElementById('phone-display-container');
-      const corner = (pos) => `<div class="qr-corner absolute w-9 h-9 border-orange-400 ${pos}"></div>`;
+      const corner = (pos) => `<div class="qr-corner absolute w-9 h-9 border-cyan-400 shadow-[0_0_10px_#22d3ee] ${pos}"></div>`;
       container.innerHTML = `
         <div class="h-full flex flex-col bg-slate-900 text-white">
           <div class="px-3 py-3 flex items-center gap-2">
@@ -1468,8 +1457,8 @@
         const line = document.getElementById('qr-scan-line');
         if (line) line.style.display = 'none';
         document.querySelectorAll('#phone-display-container .qr-corner').forEach(c => {
-          c.classList.remove('border-orange-400');
-          c.classList.add('border-emerald-400');
+          c.classList.remove('border-cyan-400 shadow-[0_0_10px_#22d3ee]');
+          c.classList.add('border-emerald-400 shadow-[0_0_12px_#34d399]');
         });
         const det = document.getElementById('qr-detected');
         if (det) { det.classList.remove('hidden'); det.classList.add('flex'); }
@@ -1480,7 +1469,7 @@
     function acctRowHtml(i, selected) {
       const a = DEBIT_ACCOUNTS[i];
       return `
-        <div id="pay-acct-${i}" class="flex items-center gap-3 p-2.5 rounded-2xl border-2 transition-all duration-150 ${selected ? 'border-orange-400 bg-orange-50' : 'border-slate-200 bg-white'}">
+        <div id="pay-acct-${i}" class="flex items-center gap-3 p-2.5 rounded-2xl border-2 transition-all duration-150 ${selected ? 'border-cyan-400 shadow-[0_0_10px_#22d3ee] bg-orange-50' : 'border-slate-200 bg-white'}">
           <div class="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-sm shrink-0">${a.letter}</div>
           <div class="flex-1 min-w-0">
             <div class="text-xs font-bold text-slate-900">${a.bank}</div>
@@ -1506,38 +1495,38 @@
         : `<div class="text-[10px] text-emerald-700 font-bold">${P.verifiedLabel || 'Verified payee'}</div>`;
 
       container.innerHTML = `
-        <div class="h-full flex flex-col py-2 px-2 bg-slate-50">
+        <div class="h-full flex flex-col py-2 px-2 bg-[#060c1c]">
           ${payHeaderHtml(P)}
-          <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-            <div id="pay-payee-card" class="flex items-center gap-3 pb-3 border-b border-slate-100 ${(state === 'pay-amount' || state === 'qr-details') ? 'pop-in' : ''}">
-              <div class="w-10 h-10 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+          <div class="bg-[#0c1630] p-4 rounded-3xl border border-cyan-500/30 shadow-xl space-y-3">
+            <div id="pay-payee-card" class="flex items-center gap-3 pb-3 border-b border-cyan-900/50 ${(state === 'pay-amount' || state === 'qr-details') ? 'pop-in' : ''}">
+              <div class="w-10 h-10 rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(6,182,212,0.2)]">
                 <i data-lucide="${P.icon}" class="w-5 h-5"></i>
               </div>
               <div class="min-w-0">
-                <div class="text-sm font-bold text-slate-900 flex items-center gap-1">
+                <div class="text-sm font-bold text-white flex items-center gap-1.5">
                   <span>${P.name}</span>
-                  <i data-lucide="badge-check" class="w-4 h-4 text-emerald-600 fill-emerald-100"></i>
+                  <i data-lucide="badge-check" class="w-4 h-4 text-emerald-400 fill-emerald-950"></i>
                 </div>
                 ${payeeSub}
               </div>
             </div>
 
-            <div class="text-center py-3 bg-slate-50 rounded-2xl border border-slate-100">
-              <span class="text-[10px] tracking-wider text-slate-500 font-bold block mb-1">${P.amountLabel || 'Enter Amount'}</span>
-              <div class="flex items-center justify-center text-4xl font-black text-slate-900 font-mono tracking-tight">
-                <span>₹</span><span id="pay-amt-text">${amtFilled ? P.amount : ''}</span><span id="pay-amt-caret" class="w-0.5 h-8 bg-orange-500 animate-pulse ml-0.5 ${amtFilled ? 'hidden' : ''}"></span>
+            <div class="text-center py-3 bg-[#070e20] rounded-2xl border border-cyan-500/30 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)]">
+              <span class="text-[10px] tracking-wider text-cyan-400 font-mono font-bold block mb-1 uppercase">${P.amountLabel || 'Enter Amount'}</span>
+              <div class="flex items-center justify-center text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-300 font-mono tracking-tight">
+                <span>₹</span><span id="pay-amt-text">${amtFilled ? P.amount : ''}</span><span id="pay-amt-caret" class="w-0.5 h-8 bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse ml-0.5 ${amtFilled ? 'hidden' : ''}"></span>
               </div>
             </div>
 
             <div id="pay-acct-wrap" class="space-y-2 transition-opacity duration-300 ${(state === 'pay-amount' || state === 'qr-details') ? 'opacity-40' : ''}">
-              <span class="text-[10px] text-slate-400 block font-bold">Paying From</span>
+              <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Paying From</span>
               <div id="pay-acct-list" class="space-y-2">
                 ${acctRowHtml(0, acctSelected)}
                 ${acctRowHtml(1, false)}
               </div>
             </div>
 
-            <button id="sim-pay-btn" class="w-full py-3.5 rounded-2xl text-white font-bold text-sm transition-all duration-150 ${btnEnabled ? 'bg-orange-500 shadow-lg shadow-orange-500/20' : 'bg-slate-300'}">
+            <button id="sim-pay-btn" class="w-full py-3.5 rounded-2xl text-slate-950 font-black text-sm transition-all duration-150 ${btnEnabled ? 'bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 shadow-[0_0_20px_rgba(6,182,212,0.4)]' : 'bg-slate-800 text-slate-500'}">
               Proceed to Pay
             </button>
           </div>
@@ -1575,13 +1564,13 @@
           if (!frameLive(frame)) return;
           const btn = document.getElementById('sim-pay-btn');
           if (btn) {
-            btn.classList.remove('bg-slate-300');
-            btn.classList.add('bg-orange-500', 'shadow-lg', 'shadow-orange-500/20');
+            btn.classList.remove('bg-slate-800', 'bg-slate-300');
+            btn.classList.add('bg-gradient-to-r', 'from-cyan-500', 'via-teal-400', 'to-emerald-400', 'text-slate-950', 'font-black', 'shadow-[0_0_20px_rgba(6,182,212,0.4)]'); btn.classList.remove('text-slate-400');
           }
         } else if (state === 'pay-proceed') {
           await sleep(800);
           if (!frameLive(frame)) return;
-          pressButton(document.getElementById('sim-pay-btn'), ['bg-orange-600']);
+          pressButton(document.getElementById('sim-pay-btn'), ['brightness-110']);
         }
       })();
     }
@@ -1590,7 +1579,7 @@
       opts = opts || {};
       const container = document.getElementById('phone-display-container');
 
-      // Same success screen re-requested (e.g. Pay flow steps 20 -> 21): keep it, don't restart confetti/animation
+      // Same success screen re-requested: keep it, don't restart confetti/animation
       if ((state === 'success-txn' || state === 'fail-txn' || state === 'deemed-txn') && window.currentPhoneState === state && !opts.force) return;
       window.currentPhoneState = state;
       const pushBanner = document.getElementById('sms-push-banner');
@@ -1613,49 +1602,53 @@
       switch (state) {
         case 'home-screen':
           container.innerHTML = `
-            <div class="h-full flex flex-col justify-between bg-white relative">
+            <div class="h-full flex flex-col justify-between bg-[#060c1c] text-white relative">
               
               <!-- App Header -->
-              <div class="px-4 py-4 flex items-center justify-between">
-                <div class="flex items-center gap-1.5">
-                  <div class="w-4 h-4 rounded-full border-4 border-orange-500"></div>
-                  <span class="text-sm font-black text-slate-900 tracking-tight">DemoPay <span class="text-orange-500">+</span></span>
+              <div class="px-4 py-4 flex items-center justify-between border-b border-cyan-950/60">
+                <div class="flex items-center gap-2">
+                  <div class="w-3.5 h-3.5 rounded-full border-2 border-cyan-400 bg-cyan-400/30 shadow-[0_0_8px_#22d3ee]"></div>
+                  <span class="text-sm font-black text-white tracking-tight">DemoPay <span class="text-cyan-400 font-mono text-xs">// NEO</span></span>
+                </div>
+                <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-[10px] font-mono text-cyan-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  <span>UPI 2.0</span>
                 </div>
               </div>
 
               <!-- Main Action Buttons -->
-              <div class="flex-1 px-4 mt-2">
+              <div class="flex-1 px-4 mt-3">
                 <div class="grid grid-cols-4 gap-2">
-                  <button id="sim-btn-pay" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-slate-100 shadow-sm bg-white transition-transform duration-100 ghost-press">
-                    <i data-lucide="send" class="w-6 h-6 text-orange-500 mb-2"></i>
-                    <span class="text-[9px] leading-tight font-bold text-slate-700">Pay VPA</span>
+                  <button id="sim-btn-pay" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-cyan-500/25 shadow-sm bg-[#0c1630] transition-transform duration-100 ghost-press">
+                    <i data-lucide="send" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                    <span class="text-[9px] leading-tight font-bold text-slate-200">Pay VPA</span>
                   </button>
-                  <button id="sim-btn-mobile" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-slate-100 shadow-sm bg-white transition-transform duration-100 ghost-press">
-                    <i data-lucide="smartphone" class="w-6 h-6 text-orange-500 mb-2"></i>
-                    <span class="text-[9px] leading-tight font-bold text-slate-700">Pay Mobile</span>
+                  <button id="sim-btn-mobile" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-cyan-500/25 shadow-sm bg-[#0c1630] transition-transform duration-100 ghost-press">
+                    <i data-lucide="smartphone" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                    <span class="text-[9px] leading-tight font-bold text-slate-200">Pay Mobile</span>
                   </button>
-                  <button id="sim-btn-balance" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-slate-100 shadow-sm bg-white transition-transform duration-100 ghost-press">
-                    <i data-lucide="wallet" class="w-6 h-6 text-orange-500 mb-2"></i>
-                    <span class="text-[9px] leading-tight font-bold text-slate-700">Check Balance</span>
+                  <button id="sim-btn-balance" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-cyan-500/25 shadow-sm bg-[#0c1630] transition-transform duration-100 ghost-press">
+                    <i data-lucide="wallet" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                    <span class="text-[9px] leading-tight font-bold text-slate-200">Check Balance</span>
                   </button>
-                  <button id="sim-btn-pin" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-slate-100 shadow-sm bg-white transition-transform duration-100 ghost-press">
-                    <i data-lucide="key-round" class="w-6 h-6 text-orange-500 mb-2"></i>
-                    <span class="text-[9px] leading-tight font-bold text-slate-700">Reset PIN</span>
+                  <button id="sim-btn-pin" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-cyan-500/25 shadow-sm bg-[#0c1630] transition-transform duration-100 ghost-press">
+                    <i data-lucide="key-round" class="w-6 h-6 text-cyan-400 mb-2"></i>
+                    <span class="text-[9px] leading-tight font-bold text-slate-200">Reset PIN</span>
                   </button>
                 </div>
               </div>
 
               <!-- Bottom Nav -->
-              <div class="border-t border-slate-100 px-6 py-2 pb-4 flex justify-between items-center bg-white text-slate-400">
-                <div class="flex flex-col items-center text-orange-500">
+              <div class="border-t border-cyan-950/60 px-6 py-2 pb-4 flex justify-between items-center bg-[#050914] text-slate-400">
+                <div class="flex flex-col items-center text-cyan-400">
                   <i data-lucide="home" class="w-5 h-5 mb-1"></i>
                   <span class="text-[9px] font-bold">Home</span>
                 </div>
                 <div class="flex flex-col items-center -mt-7">
-                  <button id="sim-nav-scan" class="w-14 h-14 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-500/30 border-4 border-white ring-1 ring-orange-100 transition-transform duration-100">
-                    <i data-lucide="qr-code" class="w-6 h-6"></i>
+                  <button id="sim-nav-scan" class="w-14 h-14 rounded-full bg-gradient-to-tr from-cyan-500 to-emerald-400 text-slate-950 flex items-center justify-center shadow-[0_0_25px_rgba(6,182,212,0.6)] border-4 border-[#060c1c] ring-1 ring-cyan-500/40 transition-transform duration-100">
+                    <i data-lucide="qr-code" class="w-6 h-6 stroke-[2.5]"></i>
                   </button>
-                  <span class="text-[9px] font-bold mt-1 text-slate-500">Scan QR</span>
+                  <span class="text-[9px] font-bold mt-1 text-slate-300">Scan QR</span>
                 </div>
                 <div class="flex flex-col items-center">
                   <i data-lucide="clock" class="w-5 h-5 mb-1"></i>
@@ -1677,7 +1670,7 @@
               
               const btn = document.getElementById(btnId);
               if(btn) {
-                const pressed = btnId === 'sim-nav-scan' ? ['scale-90', 'ring-4', 'ring-orange-200'] : ['scale-95', 'bg-slate-50', 'border-orange-200'];
+                const pressed = btnId === 'sim-nav-scan' ? ['scale-90', 'ring-4', 'ring-cyan-400'] : ['scale-95', 'bg-[#101d3d]', 'border-cyan-400'];
                 btn.classList.add(...pressed);
                 setTimeout(() => btn.classList.remove(...pressed), 200);
               }
@@ -1719,60 +1712,60 @@
 
           let statusHintHtml = '';
           if (state === 'cl-step-3-wait') {
-              statusHintHtml = `<i data-lucide="loader" class="w-3 h-3 mr-1 animate-spin"></i> <span class="animate-pulse text-amber-500">Waiting for Bank SMS...</span>`;
+              statusHintHtml = `<i data-lucide="loader" class="w-3 h-3 mr-1 animate-spin text-cyan-400"></i> <span class="animate-pulse text-cyan-300">Waiting for Bank SMS...</span>`;
           } else if (state === 'cl-step-3-receive') {
-              statusHintHtml = `<i data-lucide="check-circle-2" class="w-3 h-3 mr-1 text-emerald-600"></i> <span class="text-emerald-600">Auto-fetched from Bank A SMS</span>`;
+              statusHintHtml = `<i data-lucide="check-circle-2" class="w-3 h-3 mr-1 text-emerald-400"></i> <span class="text-emerald-400">Auto-fetched from Bank A SMS</span>`;
           }
 
           container.innerHTML = `
-            <div class="absolute inset-0 bg-[#0c2264] z-50 flex flex-col justify-between text-white">
+            <div class="absolute inset-0 bg-[#040817] z-50 flex flex-col justify-between text-white">
               <div>
-                <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-slate-200">
-                  <span class="text-sm font-bold text-slate-900">Bank A</span>
+                <div class="bg-[#060d21] px-4 py-3 flex items-center justify-between border-b border-cyan-900/60">
+                  <span class="text-sm font-bold text-white tracking-wide">Bank A</span>
                   <div class="flex items-center gap-1">
-                    <span class="text-sm font-black italic text-[#1b3a82]">UPI</span>
+                    <span class="text-sm font-black italic text-cyan-400">UPI</span>
                     <div class="flex flex-col leading-none">
-                      <span class="w-2 h-2 bg-orange-500 transform skew-x-[-15deg]"></span>
-                      <span class="w-2 h-2 bg-emerald-600 transform skew-x-[-15deg] mt-0.5"></span>
+                      <span class="w-2 h-2 bg-cyan-400 shadow-[0_0_6px_#22d3ee] transform skew-x-[-15deg]"></span>
+                      <span class="w-2 h-2 bg-emerald-400 shadow-[0_0_6px_#34d399] transform skew-x-[-15deg] mt-0.5"></span>
                     </div>
                   </div>
                 </div>
-                <div class="bg-[#12368c] px-4 py-3 flex items-center justify-between font-medium">
-                  <span class="font-mono text-slate-200 tracking-widest text-sm">•••••••••4821</span>
+                <div class="bg-[#08122c] px-4 py-3 flex items-center justify-between font-medium border-b border-cyan-950">
+                  <span class="font-mono text-cyan-300/80 tracking-widest text-sm">•••••••••4821</span>
                   <div class="flex items-center gap-1">
-                    <span class="font-bold text-xs uppercase tracking-wider">${clStateInfo.subHeader}</span>
+                    <span class="font-bold text-xs uppercase tracking-wider text-cyan-300">${clStateInfo.subHeader}</span>
                   </div>
                 </div>
               </div>
 
               <!-- Main Pad Area -->
-              <div class="flex-1 bg-white flex flex-col justify-center items-center px-6">
-                <span class="text-[11px] font-bold tracking-widest text-[#12368c] uppercase mb-6 text-center">${clStateInfo.title}</span>
+              <div class="flex-1 bg-[#070e20] flex flex-col justify-center items-center px-6">
+                <span class="text-[11px] font-bold tracking-widest text-cyan-400 uppercase mb-6 text-center">${clStateInfo.title}</span>
                 <div class="flex justify-center items-center gap-4 mb-2">
                   ${Array.from({length: clStateInfo.slots}).map((_, i) => `
                     <div class="w-8 flex flex-col items-center">
-                      <span id="cl-dot-${i}" class="h-6 text-xl font-black text-[#12368c] leading-none mb-1 font-mono">${state === 'cl-step-3-receive' ? '849201'[i] : ''}</span>
-                      <div id="cl-line-${i}" class="${state === 'cl-step-3-receive' ? 'w-full h-1 bg-[#12368c]' : 'w-full h-0.5 bg-slate-400'}"></div>
+                      <span id="cl-dot-${i}" class="h-6 text-xl font-black text-cyan-300 leading-none mb-1 font-mono">${state === 'cl-step-3-receive' ? '849201'[i] : ''}</span>
+                      <div id="cl-line-${i}" class="${state === 'cl-step-3-receive' ? 'w-full h-1 bg-cyan-400 shadow-[0_0_8px_#22d3ee]' : 'w-full h-0.5 bg-slate-700'}"></div>
                     </div>
                   `).join('')}
                 </div>
-                <div id="cl-status-hint" class="h-6 mt-1 flex items-center justify-center text-[9px] font-bold uppercase text-emerald-600">${statusHintHtml}</div>
+                <div id="cl-status-hint" class="h-6 mt-1 flex items-center justify-center text-[9px] font-bold uppercase text-emerald-400">${statusHintHtml}</div>
               </div>
 
               <!-- Keypad -->
-              <div class="bg-[#f0f2f5] border-t border-slate-200 text-slate-800 pb-4">
-                <div class="grid grid-cols-3 text-center text-2xl font-normal text-[#12368c] py-2">
-                  ${[1,2,3,4,5,6,7,8,9].map(n => `<button id="cl-key-${n}" class="py-4 ghost-press rounded-xl mx-2">${n}</button>`).join('')}
-                  <button class="py-4"><i data-lucide="delete" class="w-7 h-7 mx-auto stroke-[2.5]"></i></button>
-                  <button id="cl-key-0" class="py-4 ghost-press rounded-xl mx-2">0</button>
+              <div class="bg-[#050a17] border-t border-cyan-950 text-slate-100 pb-4">
+                <div class="grid grid-cols-3 text-center text-2xl font-normal text-cyan-100 py-2">
+                  ${[1,2,3,4,5,6,7,8,9].map(n => `<button id="cl-key-${n}" class="py-4 ghost-press rounded-xl mx-2 hover:bg-[#0c1630]">${n}</button>`).join('')}
+                  <button class="py-4 hover:bg-[#0c1630]"><i data-lucide="delete" class="w-7 h-7 mx-auto stroke-[2] text-slate-400"></i></button>
+                  <button id="cl-key-0" class="py-4 ghost-press rounded-xl mx-2 hover:bg-[#0c1630]">0</button>
                   <div class="flex items-center justify-center py-2">
-                    <button id="cl-key-check" class="w-14 h-14 rounded-full bg-[#1b3a82] text-white flex items-center justify-center shadow-md ghost-press">
+                    <button id="cl-key-check" class="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.5)] ghost-press">
                       <i data-lucide="check" class="w-7 h-7 stroke-[3]"></i>
                     </button>
                   </div>
                 </div>
-                <div class="flex items-center justify-center gap-1 mt-2 pb-2 opacity-50">
-                  <span class="text-[9px] tracking-widest uppercase font-bold">Powered By UPI</span>
+                <div class="flex items-center justify-center gap-1 mt-2 pb-2 opacity-60">
+                  <span class="text-[9px] tracking-widest uppercase font-bold text-cyan-400">SECURE UPI ENCLAVE // 256-BIT</span>
                 </div>
               </div>
             </div>
@@ -1787,8 +1780,8 @@
                       if (window.animFrameId !== currentFrame) return;
                       const check = document.getElementById('cl-key-check');
                       if (check) {
-                          check.classList.add('bg-[#12285a]', 'scale-90');
-                          setTimeout(() => check.classList.remove('bg-[#12285a]', 'scale-90'), 150);
+                          check.classList.add('brightness-125', 'scale-90');
+                          setTimeout(() => check.classList.remove('brightness-125', 'scale-90'), 150);
                       }
                   }
                   return;
@@ -1804,22 +1797,22 @@
                   const keyNode = document.getElementById('cl-key-' + val);
                   
                   if (keyNode) {
-                      keyNode.classList.add('bg-slate-300', 'scale-90');
-                      setTimeout(() => keyNode.classList.remove('bg-slate-300', 'scale-90'), 150);
+                      keyNode.classList.add('bg-cyan-950/80', 'scale-90');
+                      setTimeout(() => keyNode.classList.remove('bg-cyan-950/80', 'scale-90'), 150);
                   }
                   
                   const dot = document.getElementById('cl-dot-' + i);
                   const line = document.getElementById('cl-line-' + i);
                   if (dot) dot.innerText = keyStr;
-                  if (line) line.className = 'w-full h-1 bg-[#12368c]';
+                  if (line) line.className = 'w-full h-1 bg-cyan-400 shadow-[0_0_8px_#22d3ee]';
               }
 
               await new Promise(r => setTimeout(r, 300));
               if (window.animFrameId !== currentFrame) return;
               const check = document.getElementById('cl-key-check');
               if (check) {
-                  check.classList.add('bg-[#12285a]', 'scale-90');
-                  setTimeout(() => check.classList.remove('bg-[#12285a]', 'scale-90'), 150);
+                  check.classList.add('brightness-125', 'scale-90');
+                  setTimeout(() => check.classList.remove('brightness-125', 'scale-90'), 150);
               }
           };
           runGhostTyping();
@@ -1827,10 +1820,10 @@
 
         case 'pending-clearing':
           container.innerHTML = `
-            <div class="h-full flex flex-col items-center justify-center text-center p-4">
-              <div class="w-16 h-16 border-4 border-slate-200 border-t-orange-500 rounded-full animate-spinner mb-6"></div>
-              <span class="text-sm font-bold text-slate-800 mb-1">Processing...</span>
-              <p class="text-xs text-slate-500">Securely routing your request.</p>
+            <div class="h-full flex flex-col items-center justify-center text-center p-4 bg-[#060c1c]">
+              <div class="w-16 h-16 border-4 border-cyan-950 border-t-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.4)] rounded-full animate-spinner mb-6"></div>
+              <span class="text-sm font-bold text-white mb-1 tracking-wide">Processing Clearance...</span>
+              <p class="text-xs text-cyan-300/80 font-mono">Routing through UPI Central Switch.</p>
             </div>
           `;
           break;
@@ -1838,21 +1831,21 @@
         case 'pin-select-acct':
         case 'bal-select-acct':
           container.innerHTML = `
-            <div class="h-full flex flex-col py-4 px-2">
+            <div class="h-full flex flex-col py-4 px-2 bg-[#060c1c]">
               <div class="flex items-center gap-2 mb-6">
-                <i data-lucide="chevron-left" class="w-5 h-5 text-slate-500"></i>
-                <h3 class="text-sm font-bold text-slate-900">Select Bank Account</h3>
+                <i data-lucide="chevron-left" class="w-5 h-5 text-cyan-400"></i>
+                <h3 class="text-sm font-bold text-white tracking-wide">Select Bank Account</h3>
               </div>
-              <div id="sim-bank-card" class="p-4 rounded-3xl bg-white border border-slate-200 shadow-sm transition-transform duration-100 ghost-press">
+              <div id="sim-bank-card" class="p-4 rounded-3xl bg-[#0c1630] border border-cyan-500/30 shadow-lg transition-transform duration-100 ghost-press">
                 <div class="flex items-center justify-between mb-3">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold">A</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/35 flex items-center justify-center font-bold">A</div>
                     <div>
-                      <div class="text-sm font-bold text-slate-900">Bank A</div>
-                      <div class="text-xs text-slate-500 font-mono">Savings •••• 4821</div>
+                      <div class="text-sm font-bold text-white">Bank A</div>
+                      <div class="text-xs text-slate-400 font-mono">Savings •••• 4821</div>
                     </div>
                   </div>
-                  <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+                  <i data-lucide="chevron-right" class="w-5 h-5 text-cyan-400"></i>
                 </div>
               </div>
             </div>
@@ -1861,8 +1854,8 @@
             if(window.animFrameId === currentFrame) {
               const card = document.getElementById('sim-bank-card');
               if(card) {
-                card.classList.add('scale-95', 'bg-slate-50', 'border-orange-400');
-                setTimeout(() => card.classList.remove('scale-95', 'bg-slate-50', 'border-orange-400'), 200);
+                card.classList.add('scale-95', 'bg-[#101d3d]', 'border-cyan-400', 'shadow-[0_0_15px_rgba(6,182,212,0.3)]');
+                setTimeout(() => card.classList.remove('scale-95', 'bg-[#101d3d]', 'border-cyan-400', 'shadow-[0_0_15px_rgba(6,182,212,0.3)]'), 200);
               }
             }
           }, 600);
@@ -1871,32 +1864,32 @@
         case 'success-txn':
           triggerConfettiBurst();
           container.innerHTML = `
-            <div class="h-full flex flex-col justify-between py-6 px-4 bg-white">
-              <div class="flex flex-col items-center justify-center text-center mt-10">
-                <div class="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-400 text-emerald-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/10">
-                  <i data-lucide="check" class="w-10 h-10 stroke-[4]"></i>
+            <div class="h-full flex flex-col justify-between py-6 px-4 bg-[#060c1c] text-white">
+              <div class="flex flex-col items-center justify-center text-center mt-8">
+                <div class="w-20 h-20 rounded-full bg-emerald-950/80 border-2 border-emerald-400 text-emerald-300 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+                  <i data-lucide="check" class="w-10 h-10 stroke-[3.5]"></i>
                 </div>
-                <h2 class="text-3xl font-black font-mono text-slate-900 tracking-tight">₹750.00</h2>
-                <span class="text-sm font-bold text-slate-800 mt-2">Payment Successful</span>
-                <p class="text-xs text-slate-500 mt-1">Paid to ${getPayee().name}</p>
+                <h2 class="text-3xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-300 tracking-tight">₹750.00</h2>
+                <span class="text-sm font-bold text-emerald-400 mt-2 tracking-wide uppercase">Payment Successful</span>
+                <p class="text-xs text-slate-400 mt-1">Paid to ${getPayee().name}</p>
               </div>
 
-              <div class="w-full bg-slate-50/50 border border-slate-200 rounded-3xl p-5 text-left text-[11px] font-mono space-y-4 shadow-sm mb-6">
-                <div class="flex justify-between items-center text-slate-500">
+              <div class="w-full bg-[#0a142c]/90 border border-cyan-500/25 rounded-3xl p-5 text-left text-[11px] font-mono space-y-3.5 shadow-lg mb-6">
+                <div class="flex justify-between items-center text-slate-400">
                   <span>Switch RRN:</span>
-                  <span class="text-slate-900 font-bold">423189201948</span>
+                  <span class="text-cyan-300 font-bold">423189201948</span>
                 </div>
-                <div class="flex justify-between items-center text-slate-500">
+                <div class="flex justify-between items-center text-slate-400">
                   <span>Debited A/C:</span>
-                  <span class="text-slate-900 font-bold">Bank A (•••• 4821)</span>
+                  <span class="text-white font-bold">Bank A (•••• 4821)</span>
                 </div>
                 ${getPayee().vpa ? `
-                <div class="flex justify-between items-center text-slate-500">
+                <div class="flex justify-between items-center text-slate-400">
                   <span>Payee VPA:</span>
-                  <span class="text-slate-900 font-bold">${getPayee().vpa}</span>
+                  <span class="text-cyan-300 font-bold">${getPayee().vpa}</span>
                 </div>` : ''}
               </div>
-              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 ghost-press">Done</button>
+              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 text-slate-950 font-black text-sm shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-transform duration-100 ghost-press">Done</button>
             </div>
           `;
           scheduleReturnHome(currentFrame);
@@ -1905,21 +1898,21 @@
         case 'fail-txn': {
           const fi = getFailInfo();
           container.innerHTML = `
-            <div class="h-full flex flex-col justify-between py-6 px-4 bg-white">
-              <div class="flex flex-col items-center justify-center text-center mt-10">
-                <div class="w-20 h-20 rounded-full bg-red-50 border-4 border-red-400 text-red-500 flex items-center justify-center mb-6 shadow-lg shadow-red-500/10">
-                  <i data-lucide="x" class="w-10 h-10 stroke-[4]"></i>
+            <div class="h-full flex flex-col justify-between py-6 px-4 bg-[#060c1c] text-white">
+              <div class="flex flex-col items-center justify-center text-center mt-8">
+                <div class="w-20 h-20 rounded-full bg-red-950/80 border-2 border-red-400 text-red-300 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(239,68,68,0.5)]">
+                  <i data-lucide="x" class="w-10 h-10 stroke-[3.5]"></i>
                 </div>
-                <h2 class="text-3xl font-black font-mono text-slate-900 tracking-tight">₹750.00</h2>
-                <span class="text-sm font-bold text-red-600 mt-2">Payment Failed</span>
-                <p class="text-xs text-slate-500 mt-1">${fi.reason}</p>
+                <h2 class="text-3xl font-black font-mono text-white tracking-tight">₹750.00</h2>
+                <span class="text-sm font-bold text-red-400 mt-2 tracking-wide uppercase">Payment Failed</span>
+                <p class="text-xs text-red-300/80 mt-1">${fi.reason}</p>
               </div>
-              <div class="w-full bg-slate-50/50 border border-slate-200 rounded-3xl p-5 text-left text-[11px] font-mono space-y-4 shadow-sm mb-6">
-                <div class="flex justify-between items-center text-slate-500"><span>Status:</span><span class="text-red-600 font-bold">FAILED</span></div>
-                ${fi.code ? `<div class="flex justify-between items-center text-slate-500"><span>Response code:</span><span class="text-slate-900 font-bold">${fi.code}</span></div>` : ''}
-                <div class="flex justify-between items-center text-slate-500"><span>Amount debited:</span><span class="text-slate-900 font-bold">₹0.00</span></div>
+              <div class="w-full bg-[#0a142c]/90 border border-red-500/30 rounded-3xl p-5 text-left text-[11px] font-mono space-y-3.5 shadow-lg mb-6">
+                <div class="flex justify-between items-center text-slate-400"><span>Status:</span><span class="text-red-400 font-bold">FAILED</span></div>
+                ${fi.code ? `<div class="flex justify-between items-center text-slate-400"><span>Response code:</span><span class="text-white font-bold">${fi.code}</span></div>` : ''}
+                <div class="flex justify-between items-center text-slate-400"><span>Amount debited:</span><span class="text-white font-bold">₹0.00</span></div>
               </div>
-              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 ghost-press">Done</button>
+              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition-transform duration-100 ghost-press">Done</button>
             </div>
           `;
           scheduleReturnHome(currentFrame);
@@ -1928,21 +1921,21 @@
 
         case 'deemed-txn':
           container.innerHTML = `
-            <div class="h-full flex flex-col justify-between py-6 px-4 bg-white">
-              <div class="flex flex-col items-center justify-center text-center mt-10">
-                <div class="w-20 h-20 rounded-full bg-amber-50 border-4 border-amber-400 text-amber-500 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/10">
+            <div class="h-full flex flex-col justify-between py-6 px-4 bg-[#060c1c] text-white">
+              <div class="flex flex-col items-center justify-center text-center mt-8">
+                <div class="w-20 h-20 rounded-full bg-amber-950/80 border-2 border-amber-400 text-amber-300 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(245,158,11,0.5)]">
                   <i data-lucide="clock" class="w-10 h-10 stroke-[3]"></i>
                 </div>
-                <h2 class="text-3xl font-black font-mono text-slate-900 tracking-tight">₹750.00</h2>
-                <span class="text-sm font-bold text-amber-600 mt-2">Payment Pending (Deemed)</span>
-                <p class="text-xs text-slate-500 mt-1 max-w-[240px]">Your payment to ${getPayee().name} is being confirmed. Please check the status later.</p>
+                <h2 class="text-3xl font-black font-mono text-white tracking-tight">₹750.00</h2>
+                <span class="text-sm font-bold text-amber-400 mt-2 tracking-wide uppercase">Payment Pending (Deemed)</span>
+                <p class="text-xs text-slate-400 mt-1 max-w-[240px]">Your payment to ${getPayee().name} is being cleared. Final status will update shortly.</p>
               </div>
-              <div class="w-full bg-slate-50/50 border border-slate-200 rounded-3xl p-5 text-left text-[11px] font-mono space-y-4 shadow-sm mb-6">
-                <div class="flex justify-between items-center text-slate-500"><span>Status:</span><span class="text-amber-600 font-bold">DEEMED</span></div>
-                <div class="flex justify-between items-center text-slate-500"><span>Switch RRN:</span><span class="text-slate-900 font-bold">423189201948</span></div>
-                <div class="flex justify-between items-center text-slate-500"><span>Debited A/C:</span><span class="text-slate-900 font-bold">Bank A (•••• 4821)</span></div>
+              <div class="w-full bg-[#0a142c]/90 border border-amber-500/30 rounded-3xl p-5 text-left text-[11px] font-mono space-y-3.5 shadow-lg mb-6">
+                <div class="flex justify-between items-center text-slate-400"><span>Status:</span><span class="text-amber-400 font-bold">DEEMED</span></div>
+                <div class="flex justify-between items-center text-slate-400"><span>Switch RRN:</span><span class="text-cyan-300 font-bold">423189201948</span></div>
+                <div class="flex justify-between items-center text-slate-400"><span>Debited A/C:</span><span class="text-white font-bold">Bank A (•••• 4821)</span></div>
               </div>
-              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 ghost-press">Done</button>
+              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition-transform duration-100 ghost-press">Done</button>
             </div>
           `;
           scheduleReturnHome(currentFrame);
@@ -1951,15 +1944,15 @@
         case 'success-pin':
           triggerConfettiBurst();
           container.innerHTML = `
-            <div class="h-full flex flex-col justify-center items-center text-center p-6 bg-white">
-              <div class="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-400 text-emerald-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/10">
-                <i data-lucide="check" class="w-10 h-10 stroke-[4]"></i>
+            <div class="h-full flex flex-col justify-center items-center text-center p-6 bg-[#060c1c] text-white">
+              <div class="w-20 h-20 rounded-full bg-emerald-950/80 border-2 border-emerald-400 text-emerald-300 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+                <i data-lucide="check" class="w-10 h-10 stroke-[3.5]"></i>
               </div>
-              <h2 class="text-xl font-black text-slate-900">PIN Set Successfully</h2>
-              <p class="text-sm text-slate-500 mt-2 max-w-[240px]">
-                Your 6-digit UPI PIN is now active for Bank A.
+              <h2 class="text-xl font-black text-white tracking-wide">PIN Set Successfully</h2>
+              <p class="text-sm text-cyan-300/80 mt-2 max-w-[240px]">
+                Your 6-digit cryptographic UPI PIN is now active for Bank A.
               </p>
-              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm mt-10 transition-transform duration-100 ghost-press">Done</button>
+              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 text-slate-950 font-black text-sm mt-10 shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-transform duration-100 ghost-press">Done</button>
             </div>
           `;
           scheduleReturnHome(currentFrame);
@@ -1967,21 +1960,21 @@
 
         case 'success-balance':
           container.innerHTML = `
-            <div class="h-full flex flex-col py-6 px-4 bg-slate-50">
-              <div class="flex items-center gap-2 mb-8 text-slate-800">
-                <i data-lucide="chevron-left" class="w-6 h-6 text-slate-500"></i>
-                <h3 class="text-base font-bold">Available Balance</h3>
+            <div class="h-full flex flex-col py-6 px-4 bg-[#060c1c] text-white">
+              <div class="flex items-center gap-2 mb-8 text-white">
+                <i data-lucide="chevron-left" class="w-6 h-6 text-cyan-400"></i>
+                <h3 class="text-base font-bold tracking-wide">Available Balance</h3>
               </div>
 
               <div class="flex-1 flex flex-col items-center justify-center -mt-10">
-                <div class="w-16 h-16 rounded-3xl bg-white shadow-sm border border-slate-200 flex items-center justify-center mb-6 text-orange-500">
+                <div class="w-16 h-16 rounded-3xl bg-[#0c1630] shadow-[0_0_20px_rgba(6,182,212,0.3)] border border-cyan-500/40 flex items-center justify-center mb-6 text-cyan-400">
                   <i data-lucide="landmark" class="w-8 h-8"></i>
                 </div>
-                <span class="text-sm font-bold text-slate-600 mb-2">Bank A (•••• 4821)</span>
-                <div class="text-4xl font-black font-mono text-slate-900 tracking-tight">₹1,45,000.00</div>
+                <span class="text-sm font-bold text-slate-400 mb-2">Bank A (•••• 4821)</span>
+                <div class="text-4xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-300 tracking-tight">₹1,45,000.00</div>
               </div>
 
-              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 ghost-press mb-4">
+              <button id="sim-back-home" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 text-slate-950 font-black text-sm shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-transform duration-100 ghost-press mb-4">
                 Back to Homepage
               </button>
             </div>
@@ -1991,19 +1984,17 @@
 
         default:
           container.innerHTML = `
-            <div class="h-full flex flex-col items-center justify-center text-center p-4 bg-white">
-              <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mb-3">
-                <i data-lucide="smartphone" class="w-6 h-6 text-slate-400"></i>
+            <div class="h-full flex flex-col items-center justify-center text-center p-4 bg-[#060c1c] text-white">
+              <div class="w-12 h-12 rounded-full bg-[#0c1630] border border-cyan-500/30 flex items-center justify-center mb-3 text-cyan-400">
+                <i data-lucide="smartphone" class="w-6 h-6"></i>
               </div>
-              <span class="text-sm font-bold text-slate-800">Terminal Standby</span>
-              <p class="text-xs text-slate-500 mt-1">Select a flow above to initiate simulation.</p>
+              <span class="text-sm font-bold text-white tracking-wide">Terminal Standby</span>
+              <p class="text-xs text-slate-400 mt-1">Select a flow above to initiate simulation.</p>
             </div>
           `;
       }
       lucide.createIcons();
-    }
-
-    function getClStateInfo(state) {
+    }function getClStateInfo(state) {
       if (state === 'cl-step-1') return { title: 'ENTER LAST 6 DIGITS OF DEBIT CARD', subHeader: 'SET PIN', slots: 6, sequence: [5,1,2,9,4,8], isMasked: false };
       if (state === 'cl-step-2') return { title: 'ENTER CARD EXPIRY (MMYY)', subHeader: 'SET PIN', slots: 4, sequence: [0,9,2,8], isMasked: false };
       if (state === 'cl-step-3-wait') return { title: 'BANK SMS OTP (AUTO-READ)', subHeader: 'SET PIN', slots: 6, sequence: [], isMasked: false };
@@ -2083,8 +2074,8 @@
       g.innerHTML = Object.entries(arrows).map(([id, nums]) => {
         const w = WIRE_GEOM[id];
         const label = nums.map((n, i) => (i ? '<tspan> · </tspan>' : '') + `<tspan data-n="${n}">#${n}</tspan>`).join('');
-        return `<path id="${id}" d="${w.d}" stroke="#475569" stroke-width="3" fill="none" marker-end="url(#arrow-neutral)" />` +
-          `<text id="label-${id}" x="${w.lx}" y="${w.ly}" text-anchor="${w.a}" fill="#94a3b8" font-size="14" font-family="monospace" font-weight="bold" stroke="#0b101d" stroke-width="5" stroke-linejoin="round" paint-order="stroke">${label}</text>`;
+        return `<path id="${id}" d="${w.d}" stroke="#1e3a5f" stroke-width="3" fill="none" marker-end="url(#arrow-neutral)" />` +
+          `<text id="label-${id}" x="${w.lx}" y="${w.ly}" text-anchor="${w.a}" fill="#67e8f9" font-size="14" font-family="monospace" font-weight="bold" stroke="#040816" stroke-width="5" stroke-linejoin="round" paint-order="stroke">${label}</text>`;
       }).join('');
     }
 
@@ -2093,7 +2084,7 @@
       if (!el) return;
       const rect = el.querySelector('rect');
       if (rect) {
-        rect.setAttribute('stroke', '#f97316');
+        rect.setAttribute('stroke', '#00f2fe');
         rect.setAttribute('stroke-width', '5');
       }
       el.classList.add('block-active');
@@ -2101,7 +2092,7 @@
 
     function clearDiagramHighlights() {
       document.querySelectorAll('#svg-wires-group path').forEach(wire => {
-        wire.setAttribute('stroke', '#475569');
+        wire.setAttribute('stroke', '#1e3a5f');
         wire.setAttribute('stroke-width', '3');
         wire.setAttribute('marker-end', 'url(#arrow-neutral)');
         wire.classList.remove('wire-active');
@@ -2272,8 +2263,8 @@
       'Merchant name and amount returned': ['merchantName', 'merchantVpa', 'amount', 'respCode']
     };
     function apiAttrsHtml(list) {
-      return `<div class="mt-2 pt-2 border-t border-orange-200">
-        <div class="text-[9px] font-bold uppercase tracking-wider text-orange-600 mb-1.5">Key API message attributes</div>
+      return `<div class="mt-2 pt-2 border-t border-cyan-800/50">
+        <div class="text-[9px] font-bold uppercase tracking-wider text-cyan-400 mb-1.5 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>Key API message attributes</div>
         <div class="flex flex-wrap gap-1">${list.map(a => `<span class="api-attr-chip">${a}</span>`).join('')}</div>
       </div>`;
     }
@@ -2301,33 +2292,33 @@
 
       const header = (g, gi, active) => {
         const done = doneCut !== -1 && gi < doneCut;
-        const cls = active ? 'bg-orange-500 text-white' : done ? 'bg-emerald-500 text-white' : 'bg-gray-200 text-gray-500';
+        const cls = active ? 'bg-gradient-to-r from-cyan-400 to-teal-400 text-slate-950 font-black shadow-[0_0_15px_#22d3ee]' : done ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/60 shadow-[0_0_10px_rgba(16,185,129,0.4)]' : 'bg-slate-800/80 text-slate-400 border border-slate-700/50';
         return `<div class="flex items-center gap-3 px-3 py-2.5">
               <span class="w-7 h-7 rounded-full text-[13px] font-bold flex items-center justify-center shrink-0 ${cls}">${done ? CHECK_SVG : gi + 1}</span>
-              <div class="min-w-0"><div class="text-[15px] font-bold ${active ? 'text-gray-900' : 'text-gray-600'}">${g.title}</div></div>
+              <div class="min-w-0"><div class="text-[14px] font-bold ${active ? 'text-cyan-200 tracking-wide' : 'text-slate-300'}">${g.title}</div></div>
             </div>`;
       };
 
       const items = groups.map((g, gi) => {
         if (!(showActive && gi === cg)) {
           // collapsed tile: spare height is shared out so the column stays evenly filled
-          return `<li class="learn-tile rounded-xl border bg-white border-gray-200 flex-1 flex items-center ${showActive ? 'learn-blur' : ''}">${header(g, gi, false)}</li>`;
+          return `<li class="learn-tile rounded-xl border bg-[#0a1124]/90 border-slate-800/80 hover:border-cyan-800/50 flex-1 flex items-center ${showActive ? 'learn-blur' : ''}">${header(g, gi, false)}</li>`;
         }
         // expanded tile: height follows its content, so short steps are never empty
         const subs = g.subs.map((sb, si) => {
           const subActive = si === cs;
           const subDone = si < cs;
-          const cls = subActive ? 'border-orange-500 bg-white shadow-sm' : subDone ? 'border-emerald-400 bg-white/70' : 'border-gray-200 bg-white/40';
-          const tcls = subActive ? 'text-gray-900' : subDone ? 'text-gray-600' : 'text-gray-400';
+          const cls = subActive ? 'border-cyan-400 bg-[#0d1d3f] shadow-[0_0_15px_rgba(6,182,212,0.2)]' : subDone ? 'border-emerald-500/80 bg-[#071a1c]/60' : 'border-slate-800 bg-[#070d1e]/40';
+          const tcls = subActive ? 'text-white' : subDone ? 'text-slate-300' : 'text-slate-500';
           return `<li class="rounded-lg border-l-4 px-3 py-2 transition-all ${cls}">
               <div class="flex items-center justify-between gap-2">
                 <span class="text-sm font-bold ${tcls}">${sb.title}</span>
-                <span class="text-[11px] font-mono shrink-0 ${subActive ? 'text-orange-600' : 'text-gray-400'}">${subTag(sb)}</span>
+                <span class="text-[11px] font-mono shrink-0 ${subActive ? 'text-cyan-400 font-bold' : 'text-slate-400'}">${subTag(sb)}</span>
               </div>
-              ${subActive ? `<p class="learn-fade text-[13px] text-gray-600 mt-1 leading-snug">${sb.text}</p>${API_ATTRS[sb.title] ? apiAttrsHtml(API_ATTRS[sb.title]) : ''}` : ''}
+              ${subActive ? `<p class="learn-fade text-[13px] text-slate-300 mt-1 leading-snug">${sb.text}</p>${API_ATTRS[sb.title] ? apiAttrsHtml(API_ATTRS[sb.title]) : ''}` : ''}
             </li>`;
         }).join('');
-        return `<li class="learn-tile learn-active ${opts.animate ? 'learn-rise' : ''} rounded-xl border border-orange-400 bg-orange-50 flex-none" data-active="1">
+        return `<li class="learn-tile learn-active ${opts.animate ? 'learn-rise' : ''} rounded-xl border border-cyan-400 bg-gradient-to-b from-[#0c1836] to-[#071026] shadow-[0_0_25px_rgba(6,182,212,0.25)] flex-none" data-active="1">
             ${header(g, gi, true)}
             <div class="learn-expand ${opts.animate ? 'is-opening' : ''}"><div class="learn-expand-inner">
               <ul class="px-3 pb-3 space-y-1.5">${subs}</ul>
@@ -2537,7 +2528,7 @@
       step.activeWires.forEach(wId => {
         const el = document.getElementById(wId);
         if (el) {
-          el.setAttribute('stroke', '#f97316');
+          el.setAttribute('stroke', '#00f2fe');
           el.setAttribute('stroke-width', '4');
           el.setAttribute('marker-end', 'url(#arrow-active)');
           el.classList.add('wire-active');
@@ -2547,7 +2538,7 @@
           const nums = lbl.querySelectorAll('tspan[data-n]');
           nums.forEach(t => {
             if (nums.length === 1 || t.dataset.n === arrowNum) {
-              t.setAttribute('fill', '#fb923c');
+              t.setAttribute('fill', '#00f2fe');
               t.setAttribute('font-weight', '900');
             }
           });
@@ -2559,7 +2550,7 @@
         if (el) {
           const rect = el.querySelector('rect');
           if (rect) {
-            rect.setAttribute('stroke', '#f97316');
+            rect.setAttribute('stroke', '#00f2fe');
             rect.setAttribute('stroke-width', '5');
           }
           el.classList.add('block-active');
@@ -2756,7 +2747,7 @@
           canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:50;';
           c.appendChild(canvas);
           const fire = confetti.create(canvas, { resize: true, useWorker: false });
-          fire({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+          fire({ particleCount: 85, spread: 75, origin: { y: 0.6 }, colors: ['#00f2fe', '#00f5a0', '#38bdf8', '#c084fc', '#ffffff', '#fbbf24'] });
           setTimeout(() => { try { fire.reset(); } catch (e) {} canvas.remove(); }, 4500);
         } catch (e) { console.warn('Confetti error:', e); }
       }, 30);
@@ -2781,29 +2772,33 @@
     // ---- Home ----
     function ijHome(fromDone) {
       ij = { tok: ij.tok };
-      const tile = (id, icon, label) => `<button type="button" onclick="ijStart('${id}')" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-slate-100 shadow-sm bg-white transition-transform duration-100 active:scale-95 active:bg-slate-50">
-          <i data-lucide="${icon}" class="w-6 h-6 text-orange-500 mb-2"></i>
-          <span class="text-[9px] leading-tight font-bold text-slate-700">${label}</span></button>`;
+      const tile = (id, icon, label) => `<button type="button" onclick="ijStart('${id}')" class="flex flex-col items-center justify-center px-1 py-3 rounded-2xl text-center border border-cyan-500/25 shadow-sm bg-[#0c1630] transition-transform duration-100 active:scale-95 active:bg-[#101d3d] hover:border-cyan-400">
+          <i data-lucide="${icon}" class="w-6 h-6 text-cyan-400 mb-2"></i>
+          <span class="text-[9px] leading-tight font-bold text-slate-200">${label}</span></button>`;
       ijShow(`
-        <div class="h-full flex flex-col justify-between bg-white relative">
-          <div class="px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-1.5">
-              <div class="w-4 h-4 rounded-full border-4 border-orange-500"></div>
-              <span class="text-sm font-black text-slate-900 tracking-tight">DemoPay <span class="text-orange-500">+</span></span>
+        <div class="h-full flex flex-col justify-between bg-[#060c1c] text-white relative">
+          <div class="px-4 py-4 flex items-center justify-between border-b border-cyan-950/60">
+            <div class="flex items-center gap-2">
+              <div class="w-3.5 h-3.5 rounded-full border-2 border-cyan-400 bg-cyan-400/30 shadow-[0_0_8px_#22d3ee]"></div>
+              <span class="text-sm font-black text-white tracking-tight">DemoPay <span class="text-cyan-400 font-mono text-xs">// NEO</span></span>
+            </div>
+            <div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-[10px] font-mono text-cyan-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+              <span>LIVE</span>
             </div>
           </div>
-          <div class="flex-1 px-4 mt-2">
+          <div class="flex-1 px-4 mt-3">
             <div class="grid grid-cols-4 gap-2">
               ${tile('pay', 'send', 'Pay VPA')}${tile('mobile', 'smartphone', 'Pay Mobile')}${tile('balance', 'wallet', 'Check Balance')}${tile('pin', 'key-round', 'Reset PIN')}
             </div>
           </div>
-          <div class="border-t border-slate-100 px-6 py-2 pb-4 flex justify-between items-center bg-white text-slate-400">
-            <div class="flex flex-col items-center text-orange-500"><i data-lucide="home" class="w-5 h-5 mb-1"></i><span class="text-[9px] font-bold">Home</span></div>
+          <div class="border-t border-cyan-950/60 px-6 py-2 pb-4 flex justify-between items-center bg-[#050914] text-slate-400">
+            <div class="flex flex-col items-center text-cyan-400"><i data-lucide="home" class="w-5 h-5 mb-1"></i><span class="text-[9px] font-bold">Home</span></div>
             <div class="flex flex-col items-center -mt-7">
-              <button type="button" onclick="ijStart('qr')" class="w-14 h-14 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-lg shadow-orange-500/30 border-4 border-white ring-1 ring-orange-100 transition-transform duration-100 active:scale-90"><i data-lucide="qr-code" class="w-6 h-6"></i></button>
-              <span class="text-[9px] font-bold mt-1 text-slate-500">Scan QR</span>
+              <button type="button" onclick="ijStart('qr')" class="w-14 h-14 rounded-full bg-gradient-to-tr from-cyan-500 to-emerald-400 text-slate-950 flex items-center justify-center shadow-[0_0_25px_rgba(6,182,212,0.6)] border-4 border-[#060c1c] ring-1 ring-cyan-500/40 transition-transform duration-100 active:scale-90"><i data-lucide="qr-code" class="w-6 h-6 stroke-[2.5]"></i></button>
+              <span class="text-[9px] font-bold mt-1 text-slate-300">Scan QR</span>
             </div>
-            <button type="button" onclick="ijHistory()" class="flex flex-col items-center active:scale-95 transition-transform"><i data-lucide="clock" class="w-5 h-5 mb-1"></i><span class="text-[9px] font-bold">History</span></button>
+            <button type="button" onclick="ijHistory()" class="flex flex-col items-center active:scale-95 transition-transform"><i data-lucide="clock" class="w-5 h-5 mb-1 text-slate-400"></i><span class="text-[9px] font-bold text-slate-400">History</span></button>
           </div>
         </div>`, fromDone ? 'screen-enter-back' : '');
       ij.screen = 'home';
@@ -2817,9 +2812,9 @@
 
     // ---- Pay VPA / Pay Mobile: enter payee ----
     function ijPayHeader(P) {
-      return `<div class="flex items-center gap-1.5 mb-3 text-slate-800">${ijBackBtn('ijBack()', '-ml-1 p-0.5')}<h3 class="text-sm font-bold">${P.screenTitle}</h3></div>`;
+      return `<div class="flex items-center gap-1.5 mb-3 text-slate-100">${ijBackBtn('ijBack()', '-ml-1 p-0.5')}<h3 class="text-sm font-bold tracking-wide">${P.screenTitle}</h3></div>`;
     }
-    // ---- On-screen keyboard for phones (overlay inside the phone screen) ----
+    // ---- On-screen keyboard for phones ----
     const KB_VPA = [
       ['1','2','3','4','5','6','7','8','9','0'],
       ['q','w','e','r','t','y','u','i','o','p'],
@@ -2836,14 +2831,14 @@
       ijKbClose();
       const vpa = !isAmt && ij.flow === 'pay';
       const rows = vpa ? KB_VPA : KB_DIGITS;
-      const key = k => `<button type="button" data-k="${k}" class="flex-1 min-w-0 h-9 rounded-md bg-white text-slate-900 font-semibold text-base shadow-sm active:bg-slate-100">${k}</button>`;
+      const key = k => `<button type="button" data-k="${k}" class="flex-1 min-w-0 h-9 rounded-md bg-[#0c1630] border border-cyan-900/60 text-cyan-200 font-semibold text-base shadow-sm active:bg-[#132244]">${k}</button>`;
       const kb = document.createElement('div');
       kb.id = 'ij-kb';
-      kb.className = 'absolute inset-x-0 bottom-0 z-[60] bg-slate-200 border-t border-slate-300 px-1.5 pt-2 pb-3 shadow-2xl';
+      kb.className = 'absolute inset-x-0 bottom-0 z-[60] bg-[#050914] border-t border-cyan-900/60 px-1.5 pt-2 pb-3 shadow-2xl';
       kb.innerHTML = rows.map(r => `<div class="flex gap-1 mb-1.5">${r.map(key).join('')}</div>`).join('')
         + `<div class="flex gap-1.5 mt-1">
-             <button type="button" data-k="⌫" class="flex-1 h-9 rounded-md bg-slate-300 text-slate-800 font-bold text-sm active:bg-slate-400">⌫</button>
-             <button type="button" data-k="done" class="flex-[2] h-9 rounded-md bg-orange-500 text-white font-bold text-sm active:scale-95">Done</button>
+             <button type="button" data-k="⌫" class="flex-1 h-9 rounded-md bg-[#0c1630] border border-slate-700 text-slate-300 font-bold text-sm active:bg-[#132244]">⌫</button>
+             <button type="button" data-k="done" class="flex-[2] h-9 rounded-md bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 font-black text-sm active:scale-95 shadow-[0_0_15px_rgba(6,182,212,0.4)]">Done</button>
            </div>`;
       kb.addEventListener('click', e => {
         const b = e.target.closest('[data-k]');
@@ -2877,30 +2872,30 @@
     function ijEntry(verifying) {
       const P = PAYEE[ij.flow];
       ij.screen = verifying ? 'verifying' : 'entry';
-      const prefix = P.prefix ? `<span class="pr-2.5 mr-0.5 border-r border-slate-200 text-sm font-bold text-slate-600">${P.prefix}</span>` : '';
+      const prefix = P.prefix ? `<span class="pr-2.5 mr-0.5 border-r border-cyan-800 text-sm font-bold text-cyan-400">${P.prefix}</span>` : '';
       const field = verifying
-        ? `<span class="font-mono text-[15px] text-slate-900 tracking-wide">${ijEsc(ij.input)}</span>`
+        ? `<span class="font-mono text-[15px] text-white tracking-wide">${ijEsc(ij.input)}</span>`
         : `<input id="ij-input" type="text" ${isMobileView() ? 'readonly' : ''} onclick="ijKbOpen('payee')" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="${ij.flow === 'mobile' ? 'numeric' : 'email'}"
              placeholder="${P.placeholder}" oninput="ijOnInput(this)" onkeydown="if(event.key==='Enter')ijVerify()"
-             class="flex-1 min-w-0 bg-transparent outline-none font-mono text-[15px] text-slate-900 tracking-wide placeholder:text-[13px] placeholder:text-slate-400"/>`;
+             class="flex-1 min-w-0 bg-transparent outline-none font-mono text-[15px] text-white tracking-wide placeholder:text-[13px] placeholder:text-slate-500"/>`;
       ijShow(`
-        <div class="h-full flex flex-col py-2 px-2 bg-slate-50">
+        <div class="h-full flex flex-col py-2 px-2 bg-[#060c1c]">
           ${ijPayHeader(P)}
-          <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+          <div class="bg-[#0c1630] p-4 rounded-3xl border border-cyan-500/30 shadow-xl space-y-4">
             <div>
-              <span class="text-[11px] font-bold text-slate-500">${P.fieldLabel}</span>
-              <div class="mt-2 flex items-center gap-2 rounded-2xl px-3 py-3 border-2 ${verifying ? 'border-slate-200 bg-slate-50' : 'border-orange-400 bg-white'} transition-colors">
+              <span class="text-[11px] font-bold text-cyan-300 uppercase tracking-wider">${P.fieldLabel}</span>
+              <div class="mt-2 flex items-center gap-2 rounded-2xl px-3 py-3 border-2 ${verifying ? 'border-cyan-900/60 bg-[#070e20]' : 'border-cyan-400 bg-[#070e20] shadow-[0_0_15px_rgba(6,182,212,0.25)]'} transition-colors">
                 ${prefix}${field}
               </div>
               <p class="text-[10px] text-slate-400 mt-2 leading-snug">${P.hint}</p>
-              <p id="ij-err" class="hidden text-[10px] font-bold text-red-600 mt-1"></p>
+              <p id="ij-err" class="hidden text-[10px] font-bold text-red-400 mt-1"></p>
             </div>
             ${verifying ? `
-              <div class="w-full py-3 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center gap-2.5">
-                <div class="w-5 h-5 border-[3px] border-orange-200 border-t-orange-500 rounded-full animate-spinner"></div>
-                <span class="text-sm font-bold text-orange-600">${P.verifyingText}</span>
+              <div class="w-full py-3 rounded-2xl bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center gap-2.5">
+                <div class="w-5 h-5 border-[3px] border-cyan-950 border-t-cyan-400 rounded-full animate-spinner"></div>
+                <span class="text-sm font-bold text-cyan-300">${P.verifyingText}</span>
               </div>` : `
-              <button type="button" id="ij-verify" onclick="ijVerify()" class="w-full py-3.5 rounded-2xl bg-slate-300 text-white font-bold text-sm transition-all duration-150">Verify</button>`}
+              <button type="button" id="ij-verify" onclick="ijVerify()" class="w-full py-3.5 rounded-2xl bg-slate-800 text-slate-500 font-bold text-sm transition-all duration-150">Verify</button>`}
           </div>
         </div>`);
       if (!verifying) {
@@ -2914,7 +2909,7 @@
       ij.input = el.value.trim();
       const ok = ijValidInput(ij.input);
       const b = document.getElementById('ij-verify');
-      if (b) b.className = 'w-full py-3.5 rounded-2xl text-white font-bold text-sm transition-all duration-150 ' + (ok ? 'bg-orange-500 shadow-lg shadow-orange-500/20 active:scale-95' : 'bg-slate-300');
+      if (b) b.className = 'w-full py-3.5 rounded-2xl text-slate-950 font-black text-sm transition-all duration-150 ' + (ok ? 'bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-95' : 'bg-slate-800 text-slate-500');
       const e = document.getElementById('ij-err'); if (e) e.classList.add('hidden');
     }
     function ijVerify() {
@@ -2927,7 +2922,7 @@
       const P = PAYEE[ij.flow];
       let name, vpa = null, mobileShown = null;
       if (ij.flow === 'pay') {
-        name = ij.input.toLowerCase() === P.input ? P.name : ij.input.split('@')[0].replace(/[._\-]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        name = ij.input.toLowerCase() === P.input ? P.name : ij.input.split('@')[0].replace(/[._\-]+/g, ' ').replace(/\w/g, c => c.toUpperCase());
       } else {
         const d = ij.input === P.input;
         name = d ? P.name : 'Payee •• ' + ij.input.slice(-4);
@@ -2939,17 +2934,17 @@
       ijAfter(1200, ijDetails);
     }
 
-    // ---- QR scan: dynamic (amount pre-filled) or static (enter amount) ----
+    // ---- QR scan ----
     function ijScan(type) {
       ij.qrType = type || 'dynamic';
       ij.screen = 'scan';
-      const corner = pos => `<div class="qr-corner absolute w-9 h-9 border-orange-400 ${pos}"></div>`;
-      const chip = (t, label) => `<button type="button" onclick="ijScan('${t}')" class="px-3 py-1.5 rounded-full text-[10px] font-bold border transition-colors ${ij.qrType === t ? 'bg-orange-500 border-orange-500 text-white' : 'bg-slate-800 border-slate-600 text-slate-300'}">${label}</button>`;
+      const corner = pos => `<div class="qr-corner absolute w-9 h-9 border-cyan-400 shadow-[0_0_10px_#22d3ee] ${pos}"></div>`;
+      const chip = (t, label) => `<button type="button" onclick="ijScan('${t}')" class="px-3 py-1.5 rounded-full text-[10px] font-bold border transition-colors ${ij.qrType === t ? 'bg-cyan-500 border-cyan-400 text-slate-950 font-black shadow-[0_0_12px_rgba(6,182,212,0.5)]' : 'bg-[#0c1630] border-cyan-900/60 text-slate-400'}">${label}</button>`;
       ijShow(`
-        <div class="h-full flex flex-col bg-slate-900 text-white">
+        <div class="h-full flex flex-col bg-[#060c1c] text-white">
           <div class="px-3 py-3 flex items-center gap-2">
             ${ijBackBtn('ijBack()', '')}
-            <h3 class="text-sm font-bold">Scan QR Code</h3>
+            <h3 class="text-sm font-bold tracking-wide">Scan QR Code</h3>
           </div>
           <div class="flex-1 flex flex-col items-center justify-center px-6 pb-8">
             <div class="relative w-[240px] h-[240px]">
@@ -2957,10 +2952,10 @@
               ${corner('bottom-0 left-0 border-b-4 border-l-4 rounded-bl-2xl')}${corner('bottom-0 right-0 border-b-4 border-r-4 rounded-br-2xl')}
               <div class="absolute inset-4 rounded-xl bg-white p-2 overflow-hidden">${qrSvgHtml()}<div id="ij-scan-line" class="scan-line"></div></div>
               <div id="ij-qr-detected" class="hidden absolute inset-4 rounded-xl bg-emerald-500/25 items-center justify-center">
-                <div class="pop-in w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/40"><i data-lucide="check" class="w-9 h-9 stroke-[4]"></i></div>
+                <div class="pop-in w-16 h-16 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shadow-[0_0_25px_rgba(16,185,129,0.7)]"><i data-lucide="check" class="w-9 h-9 stroke-[4]"></i></div>
               </div>
             </div>
-            <p id="ij-qr-status" class="mt-6 text-xs font-bold text-slate-300 text-center">Align the QR code within the frame</p>
+            <p id="ij-qr-status" class="mt-6 text-xs font-bold text-slate-300 text-center font-mono">Align the QR code within the frame</p>
             <div class="mt-5 flex items-center justify-center gap-2">
               ${chip('dynamic', 'Dynamic QR (₹750)')}${chip('static', 'Static QR (enter amount)')}
             </div>
@@ -2972,7 +2967,7 @@
         const st = document.getElementById('ij-qr-status'); if (st) st.textContent = 'Scanning...';
         await sleep(1900); if (!live()) return;
         const line = document.getElementById('ij-scan-line'); if (line) line.style.display = 'none';
-        document.querySelectorAll('#ij-container .qr-corner').forEach(c => { c.classList.remove('border-orange-400'); c.classList.add('border-emerald-400'); });
+        document.querySelectorAll('#ij-container .qr-corner').forEach(c => { c.classList.remove('border-cyan-400'); c.classList.add('border-emerald-400'); });
         const det = document.getElementById('ij-qr-detected'); if (det) { det.classList.remove('hidden'); det.classList.add('flex'); }
         if (st) { st.textContent = 'QR detected'; st.classList.remove('text-slate-300'); st.classList.add('text-emerald-400'); }
         await sleep(900); if (!live()) return;
@@ -2983,48 +2978,48 @@
       })();
     }
 
-    // ---- Payee details: amount, note, account, Proceed to Pay ----
+    // ---- Payee details ----
     function ijAcctRow(i, selected) {
       const a = DEBIT_ACCOUNTS[i];
-      return `<button type="button" id="ij-acct-${i}" onclick="ijPickAcct(${i})" class="w-full text-left flex items-center gap-3 p-2.5 rounded-2xl border-2 transition-all duration-150 ${selected ? 'border-orange-400 bg-orange-50' : 'border-slate-200 bg-white'}">
-          <div class="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-sm shrink-0">${a.letter}</div>
-          <div class="flex-1 min-w-0"><div class="text-xs font-bold text-slate-900">${a.bank}</div><div class="text-[11px] text-slate-500 font-mono">${a.sub}</div></div>
-          <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${selected ? 'border-orange-500' : 'border-slate-300'}"><span class="w-2 h-2 rounded-full bg-orange-500 ${selected ? '' : 'hidden'}"></span></div>
+      return `<button type="button" id="ij-acct-${i}" onclick="ijPickAcct(${i})" class="w-full text-left flex items-center gap-3 p-2.5 rounded-2xl border-2 transition-all duration-150 ${selected ? 'border-cyan-400 bg-cyan-950/50 shadow-[0_0_15px_rgba(6,182,212,0.25)]' : 'border-slate-800 bg-[#070e20]'}">
+          <div class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/35 flex items-center justify-center font-bold text-sm shrink-0">${a.letter}</div>
+          <div class="flex-1 min-w-0"><div class="text-xs font-bold text-white">${a.bank}</div><div class="text-[11px] text-slate-400 font-mono">${a.sub}</div></div>
+          <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${selected ? 'border-cyan-400' : 'border-slate-600'}"><span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_6px_#22d3ee] ${selected ? '' : 'hidden'}"></span></div>
         </button>`;
     }
     function ijDetails() {
       const P = ij.payee, fixedAmt = ij.flow === 'qr' && ij.qrType === 'dynamic';
       ij.screen = 'details';
       const payeeSub = P.vpa
-        ? `<div class="text-[11px] text-slate-500 font-mono truncate">${ijEsc(P.vpa)}</div><div class="text-[10px] text-slate-400 font-mono">${ijEsc(P.mobileShown)}</div>`
-        : `<div class="text-[10px] text-emerald-700 font-bold">${P.verifiedLabel || 'Verified payee'}</div>`;
+        ? `<div class="text-[11px] text-cyan-300 font-mono truncate">${ijEsc(P.vpa)}</div><div class="text-[10px] text-slate-400 font-mono">${ijEsc(P.mobileShown)}</div>`
+        : `<div class="text-[10px] text-emerald-400 font-bold">${P.verifiedLabel || 'Verified payee'}</div>`;
       const amount = fixedAmt
         ? `<span id="ij-amt-text">${ij.amount}</span>`
         : `<input id="ij-amt" ${isMobileView() ? 'readonly' : ''} onclick="ijKbOpen('amount')" inputmode="numeric" maxlength="6" placeholder="0" value="${ij.amount}" oninput="ijOnAmount(this)"
-             class="bg-transparent outline-none font-mono font-black tracking-tight text-slate-900 placeholder:text-slate-300" style="width:${Math.max(1, ij.amount.length)}ch"/>`;
+             class="bg-transparent outline-none font-mono font-black tracking-tight text-white placeholder:text-slate-600" style="width:${Math.max(1, ij.amount.length)}ch"/>`;
       ijShow(`
-        <div class="h-full flex flex-col py-2 px-2 bg-slate-50 overflow-y-auto">
+        <div class="h-full flex flex-col py-2 px-2 bg-[#060c1c] overflow-y-auto">
           ${ijPayHeader(P)}
-          <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-            <div class="flex items-center gap-3 pb-3 border-b border-slate-100 pop-in">
-              <div class="w-10 h-10 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center shrink-0"><i data-lucide="${P.icon}" class="w-5 h-5"></i></div>
+          <div class="bg-[#0c1630] p-4 rounded-3xl border border-cyan-500/30 shadow-xl space-y-3">
+            <div class="flex items-center gap-3 pb-3 border-b border-cyan-900/50 pop-in">
+              <div class="w-10 h-10 rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center shrink-0 shadow-[0_0_12px_rgba(6,182,212,0.2)]"><i data-lucide="${P.icon}" class="w-5 h-5"></i></div>
               <div class="min-w-0">
-                <div class="text-sm font-bold text-slate-900 flex items-center gap-1"><span>${ijEsc(P.name)}</span><i data-lucide="badge-check" class="w-4 h-4 text-emerald-600 fill-emerald-100"></i></div>
+                <div class="text-sm font-bold text-white flex items-center gap-1.5"><span>${ijEsc(P.name)}</span><i data-lucide="badge-check" class="w-4 h-4 text-emerald-400 fill-emerald-950"></i></div>
                 ${payeeSub}
               </div>
             </div>
-            <div class="text-center py-3 bg-slate-50 rounded-2xl border border-slate-100">
-              <span class="text-[10px] tracking-wider text-slate-500 font-bold block mb-1">${P.amountLabel || 'Enter Amount'}</span>
-              <div class="flex items-center justify-center text-4xl font-black text-slate-900 font-mono tracking-tight"><span>₹</span>${amount}</div>
-              <p id="ij-amt-err" class="hidden mt-1 text-[10px] font-bold text-red-600">UPI limit per transaction is ₹1,00,000</p>
+            <div class="text-center py-3 bg-[#070e20] rounded-2xl border border-cyan-500/30 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)]">
+              <span class="text-[10px] tracking-wider text-cyan-400 font-mono font-bold block mb-1 uppercase">${P.amountLabel || 'Enter Amount'}</span>
+              <div class="flex items-center justify-center text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-300 font-mono tracking-tight"><span>₹</span>${amount}</div>
+              <p id="ij-amt-err" class="hidden mt-1 text-[10px] font-bold text-red-400">UPI limit per transaction is ₹1,00,000</p>
             </div>
             <input id="ij-note" maxlength="50" placeholder="Add a note (optional)" value="${ijEsc(ij.note || '')}" oninput="ij.note=this.value"
-              class="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2.5 text-xs text-slate-700 placeholder:text-slate-400 outline-none focus:border-orange-400"/>
+              class="w-full rounded-2xl border border-cyan-900/60 bg-[#070e20] px-3 py-2.5 text-xs text-white placeholder:text-slate-500 outline-none focus:border-cyan-400"/>
             <div id="ij-acct-wrap" class="space-y-2 transition-opacity duration-300">
-              <span class="text-[10px] text-slate-400 block font-bold">Paying From</span>
+              <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Paying From</span>
               <div class="space-y-2">${ijAcctRow(0, ij.acct === 0)}${ijAcctRow(1, ij.acct === 1)}</div>
             </div>
-            <button type="button" id="ij-pay-btn" onclick="ijProceed()" class="w-full py-3.5 rounded-2xl text-white font-bold text-sm transition-all duration-150 bg-slate-300">Proceed to Pay</button>
+            <button type="button" id="ij-pay-btn" onclick="ijProceed()" class="w-full py-3.5 rounded-2xl text-slate-950 font-black text-sm transition-all duration-150 bg-slate-800 text-slate-500">Proceed to Pay</button>
           </div>
         </div>`);
       ijAmtState();
@@ -3053,9 +3048,9 @@
       const b = document.getElementById('ij-pay-btn'); if (!b) return;
       const ok = ijPayOk();
       b.disabled = !ok;
-      b.className = 'w-full py-3.5 rounded-2xl text-white font-bold text-sm transition-all duration-150 ' + (ok ? 'bg-orange-500 shadow-lg shadow-orange-500/20 active:scale-95' : 'bg-slate-300');
+      b.className = 'w-full py-3.5 rounded-2xl text-slate-950 font-black text-sm transition-all duration-150 ' + (ok ? 'bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-95' : 'bg-slate-800 text-slate-500');
     }
-    const ijDemoHint = () => ijStore.pinSet ? null : { html: 'Demo PIN: ' + IJ_DEMO_PIN, cls: 'text-slate-500' };
+    const ijDemoHint = () => ijStore.pinSet ? null : { html: 'Demo PIN: ' + IJ_DEMO_PIN, cls: 'text-cyan-400 font-mono' };
     function ijProceed() {
       if (!ijPayOk()) return;
       ijKeypad({
@@ -3063,12 +3058,11 @@
         done: v => { ij.pinOk = (v === ijStore.pin); ijProcessing(1500, ijFinishPay); }
       });
     }
-    // Debit: success updates the balance; amount above the balance fails with Z9
     function ijFinishPay() {
       const amt = parseInt(ij.amount, 10), P = ij.payee, a = DEBIT_ACCOUNTS[ij.acct];
       const t = { id: 'DEMOPAY' + ijDigits(15), rrn: '4' + ijDigits(11), ts: new Date(), amount: amt, payee: P.name, vpa: P.vpa || null,
                   bank: a.bank, last4: a.sub.slice(-4), note: (ij.note || '').trim(), status: 'success' };
-      if (!ij.pinOk) {            // wrong PIN: the flow carries on and ends on a failure screen
+      if (!ij.pinOk) {
         t.status = 'failed'; t.code = 'ZM'; t.reason = 'Incorrect PIN';
         ijStore.hist.unshift(t); ij.txn = t;
         return ijFailTxn();
@@ -3083,23 +3077,23 @@
       ijSuccessTxn();
     }
 
-    // ---- Select account (Check Balance lists both accounts; Reset PIN uses Bank A) ----
+    // ---- Select account ----
     function ijSelAcct() {
       ij.screen = 'selacct';
       const list = ij.flow === 'balance' ? [0, 1] : [0];
       const card = i => { const a = DEBIT_ACCOUNTS[i]; return `
-          <button type="button" onclick="ijAcctChosen(${i})" class="w-full text-left p-4 rounded-3xl bg-white border border-slate-200 shadow-sm transition-transform duration-100 active:scale-95 active:bg-slate-50 active:border-orange-400">
+          <button type="button" onclick="ijAcctChosen(${i})" class="w-full text-left p-4 rounded-3xl bg-[#0c1630] border border-cyan-500/30 shadow-lg transition-transform duration-100 active:scale-95 hover:border-cyan-400">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center font-bold">${a.letter}</div>
-                <div><div class="text-sm font-bold text-slate-900">${a.bank}</div><div class="text-xs text-slate-500 font-mono">${a.sub}</div></div>
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/35 flex items-center justify-center font-bold">${a.letter}</div>
+                <div><div class="text-sm font-bold text-white">${a.bank}</div><div class="text-xs text-slate-400 font-mono">${a.sub}</div></div>
               </div>
-              <i data-lucide="chevron-right" class="w-5 h-5 text-slate-400"></i>
+              <i data-lucide="chevron-right" class="w-5 h-5 text-cyan-400"></i>
             </div>
           </button>`; };
       ijShow(`
-        <div class="h-full flex flex-col py-4 px-2">
-          <div class="flex items-center gap-2 mb-6">${ijBackBtn('ijBack()', '')}<h3 class="text-sm font-bold text-slate-900">Select Bank Account</h3></div>
+        <div class="h-full flex flex-col py-4 px-2 bg-[#060c1c] text-white">
+          <div class="flex items-center gap-2 mb-6">${ijBackBtn('ijBack()', '')}<h3 class="text-sm font-bold tracking-wide">Select Bank Account</h3></div>
           <div class="space-y-3">${list.map(card).join('')}</div>
         </div>`);
     }
@@ -3116,41 +3110,41 @@
       ij.kp = Object.assign({ buf: '', masked: false, locked: false }, cfg);
       const k = ij.kp;
       ijShow(`
-        <div class="absolute inset-0 bg-[#0c2264] z-50 flex flex-col justify-between text-white">
+        <div class="absolute inset-0 bg-[#040817] z-50 flex flex-col justify-between text-white">
           <div>
-            <div class="bg-white px-4 py-3 flex items-center justify-between border-b border-slate-200">
+            <div class="bg-[#060d21] px-4 py-3 flex items-center justify-between border-b border-cyan-900/60">
               <div class="flex items-center gap-2">
                 ${ijBackBtn('ijHome()', '')}
-                <span class="text-sm font-bold text-slate-900">${ijBank()}</span>
+                <span class="text-sm font-bold text-white">${ijBank()}</span>
               </div>
               <div class="flex items-center gap-1">
-                <span class="text-sm font-black italic text-[#1b3a82]">UPI</span>
-                <div class="flex flex-col leading-none"><span class="w-2 h-2 bg-orange-500 transform skew-x-[-15deg]"></span><span class="w-2 h-2 bg-emerald-600 transform skew-x-[-15deg] mt-0.5"></span></div>
+                <span class="text-sm font-black italic text-cyan-400">UPI</span>
+                <div class="flex flex-col leading-none"><span class="w-2 h-2 bg-cyan-400 shadow-[0_0_6px_#22d3ee] transform skew-x-[-15deg]"></span><span class="w-2 h-2 bg-emerald-400 shadow-[0_0_6px_#34d399] transform skew-x-[-15deg] mt-0.5"></span></div>
               </div>
             </div>
-            <div class="bg-[#12368c] px-4 py-3 flex items-center justify-between font-medium">
-              <span class="font-mono text-slate-200 tracking-widest text-sm">•••••••••${ijLast4()}</span>
-              <span class="font-bold text-xs uppercase tracking-wider">${k.sub}</span>
+            <div class="bg-[#08122c] px-4 py-3 flex items-center justify-between font-medium border-b border-cyan-950">
+              <span class="font-mono text-cyan-300/80 tracking-widest text-sm">•••••••••${ijLast4()}</span>
+              <span class="font-bold text-xs uppercase tracking-wider text-cyan-300">${k.sub}</span>
             </div>
           </div>
-          <div class="flex-1 bg-white flex flex-col justify-center items-center px-6">
-            <span class="text-[11px] font-bold tracking-widest text-[#12368c] uppercase mb-6 text-center">${k.title}</span>
+          <div class="flex-1 bg-[#070e20] flex flex-col justify-center items-center px-6">
+            <span class="text-[11px] font-bold tracking-widest text-cyan-400 uppercase mb-6 text-center">${k.title}</span>
             <div class="flex justify-center items-center gap-4 mb-2">
-              ${Array.from({ length: k.slots }).map((_, i) => `<div class="w-8 flex flex-col items-center"><span id="ij-dot-${i}" class="h-6 text-xl font-black text-[#12368c] leading-none mb-1 font-mono"></span><div id="ij-line-${i}" class="w-full h-0.5 bg-slate-400"></div></div>`).join('')}
+              ${Array.from({ length: k.slots }).map((_, i) => `<div class="w-8 flex flex-col items-center"><span id="ij-dot-${i}" class="h-6 text-xl font-black text-cyan-300 leading-none mb-1 font-mono"></span><div id="ij-line-${i}" class="w-full h-0.5 bg-slate-700"></div></div>`).join('')}
             </div>
-            <div id="ij-hint" class="min-h-6 mt-1 flex items-center justify-center text-[9px] font-bold uppercase text-emerald-600 text-center"></div>
+            <div id="ij-hint" class="min-h-6 mt-1 flex items-center justify-center text-[9px] font-bold uppercase text-emerald-400 text-center"></div>
           </div>
-          <div class="bg-[#f0f2f5] border-t border-slate-200 text-slate-800 pb-4">
-            <div class="grid grid-cols-3 text-center text-2xl font-normal text-[#12368c] py-2">
-              ${[1,2,3,4,5,6,7,8,9].map(n => `<button type="button" onclick="ijKey('${n}')" class="py-4 rounded-xl mx-2 transition-all duration-100 active:bg-slate-300 active:scale-90">${n}</button>`).join('')}
-              <button type="button" onclick="ijKey('del')" class="py-4 active:scale-90"><i data-lucide="delete" class="w-7 h-7 mx-auto stroke-[2.5]"></i></button>
-              <button type="button" onclick="ijKey('0')" class="py-4 rounded-xl mx-2 transition-all duration-100 active:bg-slate-300 active:scale-90">0</button>
+          <div class="bg-[#050a17] border-t border-cyan-950 text-slate-100 pb-4">
+            <div class="grid grid-cols-3 text-center text-2xl font-normal text-cyan-100 py-2">
+              ${[1,2,3,4,5,6,7,8,9].map(n => `<button type="button" onclick="ijKey('${n}')" class="py-4 rounded-xl mx-2 transition-all duration-100 active:bg-cyan-950/80 active:scale-90 hover:bg-[#0c1630]">${n}</button>`).join('')}
+              <button type="button" onclick="ijKey('del')" class="py-4 active:scale-90 hover:bg-[#0c1630]"><i data-lucide="delete" class="w-7 h-7 mx-auto stroke-[2] text-slate-400"></i></button>
+              <button type="button" onclick="ijKey('0')" class="py-4 rounded-xl mx-2 transition-all duration-100 active:bg-cyan-950/80 active:scale-90 hover:bg-[#0c1630]">0</button>
               <div class="flex items-center justify-center py-2">
-                <button type="button" onclick="ijKpSubmit()" class="w-14 h-14 rounded-full bg-[#1b3a82] text-white flex items-center justify-center shadow-md transition-all duration-100 active:bg-[#12285a] active:scale-90"><i data-lucide="check" class="w-7 h-7 stroke-[3]"></i></button>
+                <button type="button" onclick="ijKpSubmit()" class="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-500 to-teal-400 text-slate-950 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all duration-100 active:brightness-125 active:scale-90"><i data-lucide="check" class="w-7 h-7 stroke-[3]"></i></button>
               </div>
             </div>
-            ${k.footMsg ? `<div class="text-center text-[10px] font-bold text-red-600 px-4 pt-1">${k.footMsg}</div>` : ''}
-            <div class="flex items-center justify-center gap-1 mt-2 pb-2 opacity-50"><span class="text-[9px] tracking-widest uppercase font-bold">Powered By UPI</span></div>
+            ${k.footMsg ? `<div class="text-center text-[10px] font-bold text-red-400 px-4 pt-1">${k.footMsg}</div>` : ''}
+            <div class="flex items-center justify-center gap-1 mt-2 pb-2 opacity-60"><span class="text-[9px] tracking-widest uppercase font-bold text-cyan-400">SECURE UPI ENCLAVE // 256-BIT</span></div>
           </div>
         </div>`);
       if (k.baseHint) ijHint(k.baseHint.html, k.baseHint.cls);
@@ -3158,7 +3152,7 @@
     }
     function ijHint(html, cls) {
       const h = document.getElementById('ij-hint'); if (!h) return;
-      h.className = 'min-h-6 mt-1 flex items-center justify-center text-[9px] font-bold uppercase text-center ' + (cls || 'text-emerald-600');
+      h.className = 'min-h-6 mt-1 flex items-center justify-center text-[9px] font-bold uppercase text-center ' + (cls || 'text-emerald-400');
       h.innerHTML = html;
       lucide.createIcons();
     }
@@ -3167,7 +3161,7 @@
       for (let i = 0; i < k.slots; i++) {
         const d = document.getElementById('ij-dot-' + i), l = document.getElementById('ij-line-' + i), has = i < k.buf.length;
         if (d) d.textContent = has ? (k.masked ? '●' : k.buf[i]) : '';
-        if (l) l.className = has ? 'w-full h-1 bg-[#12368c]' : 'w-full h-0.5 bg-slate-400';
+        if (l) l.className = has ? 'w-full h-1 bg-cyan-400 shadow-[0_0_8px_#22d3ee]' : 'w-full h-0.5 bg-slate-700';
       }
     }
     function ijKey(key) {
@@ -3180,35 +3174,22 @@
     function ijKpClear() { ij.kp.buf = ''; ijKpPaint(); }
     function ijKpSubmit() {
       const k = ij.kp; if (!k || k.locked) return;
-      if (k.buf.length < k.slots) return ijHint(`Enter all ${k.slots} digits`, 'text-red-600');
+      if (k.buf.length < k.slots) return ijHint(`Enter all ${k.slots} digits`, 'text-red-400');
       k.done(k.buf);
     }
-    // Item 9: physical keyboard on the keypad screens
-    document.addEventListener('keydown', e => {
-      if (ij.screen !== 'kp') return;
-      const jm = document.getElementById('mode-journey');
-      if (!jm || jm.style.display === 'none') return;
-      if (e.ctrlKey || e.metaKey || e.altKey) return;
-      const t = e.target;
-      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
-      if (/^[0-9]$/.test(e.key)) { ijKey(e.key); e.preventDefault(); }
-      else if (e.key === 'Backspace') { ijKey('del'); e.preventDefault(); }
-      else if (e.key === 'Enter') { if (t && t.tagName === 'BUTTON') return; ijKpSubmit(); e.preventDefault(); }
-      else if (e.key === 'Escape') { ijHome(); }
-    });
 
-    // ---- Reset PIN: card -> expiry -> OTP (auto-read) -> new PIN -> confirm ----
+    // ---- Reset PIN ----
     function ijPinStep(n, msg) {
       if (n === 1) ijKeypad({ title: 'ENTER LAST 6 DIGITS OF DEBIT CARD', sub: 'SET PIN', slots: 6, done: () => ijPinStep(2) });
       if (n === 2) ijKeypad({ title: 'ENTER CARD EXPIRY (MMYY)', sub: 'SET PIN', slots: 4,
-        done: v => { if (!/^(0[1-9]|1[0-2])\d\d$/.test(v)) { ijHint('Enter a valid expiry (MMYY)', 'text-red-600'); return ijKpClear(); } ijPinStep(3); } });
+        done: v => { if (!/^(0[1-9]|1[0-2])\d\d$/.test(v)) { ijHint('Enter a valid expiry (MMYY)', 'text-red-400'); return ijKpClear(); } ijPinStep(3); } });
       if (n === 3) ijKeypad({ title: 'BANK SMS OTP (AUTO-READ)', sub: 'SET PIN', slots: 6, locked: true,
         onOpen: () => {
-          ijHint(`<i data-lucide="loader" class="w-3 h-3 mr-1 animate-spin"></i> <span class="animate-pulse text-amber-500">Waiting for Bank SMS...</span>`);
+          ijHint(`<i data-lucide="loader" class="w-3 h-3 mr-1 animate-spin text-cyan-400"></i> <span class="animate-pulse text-cyan-300">Waiting for Bank SMS...</span>`);
           ijAfter(1600, () => {
             ij.kp.buf = '849201'; ij.kp.locked = false; ijKpPaint();
             ijBanner(true);
-            ijHint(`<i data-lucide="check-circle-2" class="w-3 h-3 mr-1 text-emerald-600"></i> <span class="text-emerald-600">Auto-fetched from Bank A SMS</span>`);
+            ijHint(`<i data-lucide="check-circle-2" class="w-3 h-3 mr-1 text-emerald-400"></i> <span class="text-emerald-400">Auto-fetched from Bank A SMS</span>`);
             setTimeout(() => ijBanner(false), 4000);
           });
         },
@@ -3217,7 +3198,7 @@
       if (n === 5) ijKeypad({ title: 'CONFIRM 6-DIGIT UPI PIN', sub: 'SET PIN', slots: 6, masked: true,
         done: v => {
           if (v !== ij.newPin) return ijPinStep(4, "PIN doesn't match. Please enter a new PIN again.");
-          ijStore.pin = v; ijStore.pinSet = true;      // the new PIN is now required for payments and balance checks
+          ijStore.pin = v; ijStore.pinSet = true;
           ijProcessing(1500, ijSuccessPin);
         } });
     }
@@ -3226,14 +3207,14 @@
     function ijProcessing(ms, next) {
       ij.screen = 'busy';
       ijShow(`
-        <div class="h-full flex flex-col items-center justify-center text-center p-4">
-          <div class="w-16 h-16 border-4 border-slate-200 border-t-orange-500 rounded-full animate-spinner mb-6"></div>
-          <span class="text-sm font-bold text-slate-800 mb-1">Processing...</span>
-          <p class="text-xs text-slate-500">Securely routing your request.</p>
+        <div class="h-full flex flex-col items-center justify-center text-center p-4 bg-[#060c1c]">
+          <div class="w-16 h-16 border-4 border-cyan-950 border-t-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.4)] rounded-full animate-spinner mb-6"></div>
+          <span class="text-sm font-bold text-white mb-1 tracking-wide">Processing Clearance...</span>
+          <p class="text-xs text-cyan-300/80 font-mono">Routing through UPI Central Switch.</p>
         </div>`);
       ijAfter(ms, next);
     }
-    const ijRow = (k, v) => `<div class="flex justify-between items-center gap-3 text-slate-500"><span class="shrink-0">${k}</span><span class="text-slate-900 font-bold text-right break-all">${v}</span></div>`;
+    const ijRow = (k, v) => `<div class="flex justify-between items-center gap-3 text-slate-400"><span class="shrink-0">${k}</span><span class="text-cyan-200 font-bold text-right break-all">${v}</span></div>`;
     function ijReceiptRows(t) {
       const acct = `${t.bank} (•••• ${t.last4})`;
       const rows = t.status === 'success'
@@ -3247,17 +3228,17 @@
       ij.screen = 'done';
       const t = ij.txn;
       ijShow(`
-        <div class="h-full flex flex-col justify-between py-5 px-4 bg-white overflow-y-auto">
+        <div class="h-full flex flex-col justify-between py-5 px-4 bg-[#060c1c] text-white overflow-y-auto">
           <div class="flex flex-col items-center justify-center text-center mt-4">
-            <div class="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-400 text-emerald-500 flex items-center justify-center mb-5 shadow-lg shadow-emerald-500/10"><i data-lucide="check" class="w-10 h-10 stroke-[4]"></i></div>
-            <h2 class="text-3xl font-black font-mono text-slate-900 tracking-tight">₹${t.amount}.00</h2>
-            <span class="text-sm font-bold text-slate-800 mt-2">Payment Successful</span>
-            <p class="text-xs text-slate-500 mt-1">Paid to ${ijEsc(t.payee)}</p>
+            <div class="w-20 h-20 rounded-full bg-emerald-950/80 border-2 border-emerald-400 text-emerald-300 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(16,185,129,0.5)]"><i data-lucide="check" class="w-10 h-10 stroke-[3.5]"></i></div>
+            <h2 class="text-3xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-300 tracking-tight">₹${t.amount}.00</h2>
+            <span class="text-sm font-bold text-emerald-400 mt-2 uppercase tracking-wide">Payment Successful</span>
+            <p class="text-xs text-slate-400 mt-1">Paid to ${ijEsc(t.payee)}</p>
           </div>
-          <div class="w-full bg-slate-50/50 border border-slate-200 rounded-3xl p-4 text-left text-[11px] font-mono space-y-2.5 shadow-sm my-4">${ijReceiptRows(t)}</div>
+          <div class="w-full bg-[#0a142c]/90 border border-cyan-500/25 rounded-3xl p-4 text-left text-[11px] font-mono space-y-2.5 shadow-lg my-4">${ijReceiptRows(t)}</div>
           <div class="space-y-2">
             ${ijSeeHowBtn()}
-            <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 active:scale-95">Done</button>
+            <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 text-slate-950 font-black text-sm shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-transform duration-100 active:scale-95">Done</button>
           </div>
         </div>`);
       ijConfetti();
@@ -3266,28 +3247,28 @@
       ij.screen = 'done';
       const t = ij.txn;
       ijShow(`
-        <div class="h-full flex flex-col justify-between py-5 px-4 bg-white overflow-y-auto">
+        <div class="h-full flex flex-col justify-between py-5 px-4 bg-[#060c1c] text-white overflow-y-auto">
           <div class="flex flex-col items-center justify-center text-center mt-4">
-            <div class="w-20 h-20 rounded-full bg-red-50 border-4 border-red-400 text-red-500 flex items-center justify-center mb-5 shadow-lg shadow-red-500/10"><i data-lucide="x" class="w-10 h-10 stroke-[4]"></i></div>
-            <h2 class="text-3xl font-black font-mono text-slate-900 tracking-tight">₹${t.amount}.00</h2>
-            <span class="text-sm font-bold text-slate-800 mt-2">Payment Failed</span>
-            <p class="text-xs text-red-600 font-bold mt-1">${t.code} · ${t.reason}</p>
-            <p class="text-xs text-slate-500 mt-1">Not paid to ${ijEsc(t.payee)}. No money was debited.</p>
+            <div class="w-20 h-20 rounded-full bg-red-950/80 border-2 border-red-400 text-red-300 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(239,68,68,0.5)]"><i data-lucide="x" class="w-10 h-10 stroke-[3.5]"></i></div>
+            <h2 class="text-3xl font-black font-mono text-white tracking-tight">₹${t.amount}.00</h2>
+            <span class="text-sm font-bold text-red-400 mt-2 uppercase tracking-wide">Payment Failed</span>
+            <p class="text-xs text-red-300/90 font-bold mt-1">${t.code} · ${t.reason}</p>
+            <p class="text-xs text-slate-400 mt-1">Not paid to ${ijEsc(t.payee)}. No money was debited.</p>
           </div>
-          <div class="w-full bg-slate-50/50 border border-slate-200 rounded-3xl p-4 text-left text-[11px] font-mono space-y-2.5 shadow-sm my-4">${ijReceiptRows(t)}</div>
-          <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 active:scale-95">Done</button>
+          <div class="w-full bg-[#0a142c]/90 border border-red-500/30 rounded-3xl p-4 text-left text-[11px] font-mono space-y-2.5 shadow-lg my-4">${ijReceiptRows(t)}</div>
+          <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition-transform duration-100 active:scale-95">Done</button>
         </div>`);
     }
     function ijSuccessPin() {
       ij.screen = 'done';
       ijShow(`
-        <div class="h-full flex flex-col justify-center items-center text-center p-6 bg-white">
-          <div class="w-20 h-20 rounded-full bg-emerald-50 border-4 border-emerald-400 text-emerald-500 flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/10"><i data-lucide="check" class="w-10 h-10 stroke-[4]"></i></div>
-          <h2 class="text-xl font-black text-slate-900">PIN Set Successfully</h2>
-          <p class="text-sm text-slate-500 mt-2 max-w-[240px]">Your 6-digit UPI PIN is now active for Bank A.</p>
+        <div class="h-full flex flex-col justify-center items-center text-center p-6 bg-[#060c1c] text-white">
+          <div class="w-20 h-20 rounded-full bg-emerald-950/80 border-2 border-emerald-400 text-emerald-300 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(16,185,129,0.5)]"><i data-lucide="check" class="w-10 h-10 stroke-[3.5]"></i></div>
+          <h2 class="text-xl font-black text-white tracking-wide">PIN Set Successfully</h2>
+          <p class="text-sm text-cyan-300/80 mt-2 max-w-[240px]">Your 6-digit cryptographic UPI PIN is now active for Bank A.</p>
           <div class="w-full mt-10 space-y-2">
             ${ijSeeHowBtn()}
-            <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 active:scale-95">Done</button>
+            <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 text-slate-950 font-black text-sm shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-transform duration-100 active:scale-95">Done</button>
           </div>
         </div>`);
       ijConfetti();
@@ -3295,30 +3276,30 @@
     function ijBalanceFail() {
       ij.screen = 'done';
       ijShow(`
-        <div class="h-full flex flex-col justify-between py-5 px-4 bg-white overflow-y-auto">
+        <div class="h-full flex flex-col justify-between py-5 px-4 bg-[#060c1c] text-white overflow-y-auto">
           <div class="flex flex-col items-center justify-center text-center mt-10">
-            <div class="w-20 h-20 rounded-full bg-red-50 border-4 border-red-400 text-red-500 flex items-center justify-center mb-5 shadow-lg shadow-red-500/10"><i data-lucide="x" class="w-10 h-10 stroke-[4]"></i></div>
-            <h2 class="text-xl font-black text-slate-900">Balance Check Failed</h2>
-            <p class="text-xs text-red-600 font-bold mt-2">ZM · Incorrect PIN</p>
-            <p class="text-xs text-slate-500 mt-1 max-w-[240px]">The UPI PIN entered was incorrect. No balance was fetched for ${ijBank()} (•••• ${ijLast4()}).</p>
+            <div class="w-20 h-20 rounded-full bg-red-950/80 border-2 border-red-400 text-red-300 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(239,68,68,0.5)]"><i data-lucide="x" class="w-10 h-10 stroke-[3.5]"></i></div>
+            <h2 class="text-xl font-black text-white tracking-wide">Balance Check Failed</h2>
+            <p class="text-xs text-red-400 font-bold mt-2">ZM · Incorrect PIN</p>
+            <p class="text-xs text-slate-400 mt-1 max-w-[240px]">The UPI PIN entered was incorrect. No balance was fetched for ${ijBank()} (•••• ${ijLast4()}).</p>
           </div>
-          <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 active:scale-95">Done</button>
+          <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition-transform duration-100 active:scale-95">Done</button>
         </div>`);
     }
     function ijBalanceScreen() {
       if (!ij.pinOk) return ijBalanceFail();
       ij.screen = 'done';
       ijShow(`
-        <div class="h-full flex flex-col py-6 px-4 bg-slate-50">
-          <div class="flex items-center gap-2 mb-8 text-slate-800">${ijBackBtn('ijHome()', '')}<h3 class="text-base font-bold">Available Balance</h3></div>
+        <div class="h-full flex flex-col py-6 px-4 bg-[#060c1c] text-white">
+          <div class="flex items-center gap-2 mb-8 text-white">${ijBackBtn('ijHome()', '')}<h3 class="text-base font-bold tracking-wide">Available Balance</h3></div>
           <div class="flex-1 flex flex-col items-center justify-center -mt-10">
-            <div class="w-16 h-16 rounded-3xl bg-white shadow-sm border border-slate-200 flex items-center justify-center mb-6 text-orange-500"><i data-lucide="landmark" class="w-8 h-8"></i></div>
-            <span class="text-sm font-bold text-slate-600 mb-2">${ijBank()} (•••• ${ijLast4()})</span>
-            <div class="text-4xl font-black font-mono text-slate-900 tracking-tight">₹${ijInr(ijStore.bal[ij.acct])}</div>
+            <div class="w-16 h-16 rounded-3xl bg-[#0c1630] border border-cyan-500/40 shadow-[0_0_20px_rgba(6,182,212,0.3)] flex items-center justify-center mb-6 text-cyan-400"><i data-lucide="landmark" class="w-8 h-8"></i></div>
+            <span class="text-sm font-bold text-slate-400 mb-2">${ijBank()} (•••• ${ijLast4()})</span>
+            <div class="text-4xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-300 tracking-tight">₹${ijInr(ijStore.bal[ij.acct])}</div>
           </div>
           <div class="space-y-2 mb-4">
             ${ijSeeHowBtn()}
-            <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-[#0f172a] text-white font-bold text-sm transition-transform duration-100 active:scale-95">Back to Homepage</button>
+            <button type="button" onclick="ijHome(true)" class="w-full py-4 rounded-3xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 text-slate-950 font-black text-sm shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-transform duration-100 active:scale-95">Back to Homepage</button>
           </div>
         </div>`);
     }
@@ -3330,15 +3311,15 @@
       const h = ijStore.hist;
       const rows = h.length ? h.map((t, i) => {
         const ok = t.status === 'success';
-        return `<button type="button" onclick="ijTxn(${i})" class="w-full text-left flex items-center gap-3 p-3 rounded-2xl bg-white border border-slate-200 shadow-sm transition-transform duration-100 active:scale-[0.98]">
-          <div class="w-9 h-9 rounded-xl ${ok ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-500'} flex items-center justify-center shrink-0"><i data-lucide="${ok ? 'check' : 'x'}" class="w-4 h-4 stroke-[3]"></i></div>
-          <div class="flex-1 min-w-0"><div class="text-xs font-bold text-slate-900 truncate">${ijEsc(t.payee)}</div><div class="text-[10px] text-slate-500">${ijWhen(t.ts)}</div></div>
-          <div class="text-right shrink-0"><div class="text-xs font-black font-mono text-slate-900">₹${ijInr(t.amount)}</div><div class="text-[9px] font-bold ${ok ? 'text-emerald-600' : 'text-red-500'}">${ok ? 'Success' : 'Failed · ' + t.code}</div></div>
+        return `<button type="button" onclick="ijTxn(${i})" class="w-full text-left flex items-center gap-3 p-3 rounded-2xl bg-[#0c1630] border border-cyan-500/25 shadow-sm transition-transform duration-100 active:scale-[0.98] hover:border-cyan-400">
+          <div class="w-9 h-9 rounded-xl ${ok ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-500/40' : 'bg-red-950/80 text-red-400 border border-red-500/40'} flex items-center justify-center shrink-0"><i data-lucide="${ok ? 'check' : 'x'}" class="w-4 h-4 stroke-[3]"></i></div>
+          <div class="flex-1 min-w-0"><div class="text-xs font-bold text-white truncate">${ijEsc(t.payee)}</div><div class="text-[10px] text-slate-400">${ijWhen(t.ts)}</div></div>
+          <div class="text-right shrink-0"><div class="text-xs font-black font-mono text-cyan-300">₹${ijInr(t.amount)}</div><div class="text-[9px] font-bold ${ok ? 'text-emerald-400' : 'text-red-400'}">${ok ? 'Success' : 'Failed · ' + t.code}</div></div>
         </button>`;
-      }).join('') : `<div class="flex-1 flex flex-col items-center justify-center text-center text-slate-400"><i data-lucide="clock" class="w-8 h-8 mb-2"></i><span class="text-xs font-bold">No transactions yet</span></div>`;
+      }).join('') : `<div class="flex-1 flex flex-col items-center justify-center text-center text-slate-500"><i data-lucide="clock" class="w-8 h-8 mb-2 text-slate-600"></i><span class="text-xs font-bold">No transactions yet</span></div>`;
       ijShow(`
-        <div class="h-full flex flex-col py-4 px-3 bg-slate-50">
-          <div class="flex items-center gap-2 mb-4">${ijBackBtn('ijHome()', '')}<h3 class="text-sm font-bold text-slate-900">History</h3></div>
+        <div class="h-full flex flex-col py-4 px-3 bg-[#060c1c] text-white">
+          <div class="flex items-center gap-2 mb-4">${ijBackBtn('ijHome()', '')}<h3 class="text-sm font-bold tracking-wide">Transaction Ledger</h3></div>
           <div class="flex-1 overflow-y-auto flex flex-col gap-2">${rows}</div>
         </div>`);
     }
@@ -3347,18 +3328,22 @@
       const ok = t.status === 'success';
       ij.screen = 'txn';
       ijShow(`
-        <div class="h-full flex flex-col py-4 px-4 bg-white overflow-y-auto">
-          <div class="flex items-center gap-2 mb-5">${ijBackBtn('ijBack()', '')}<h3 class="text-sm font-bold text-slate-900">Transaction details</h3></div>
+        <div class="h-full flex flex-col py-4 px-4 bg-[#060c1c] text-white overflow-y-auto">
+          <div class="flex items-center gap-2 mb-5">${ijBackBtn('ijBack()', '')}<h3 class="text-sm font-bold tracking-wide">Transaction details</h3></div>
           <div class="flex flex-col items-center text-center mb-5">
-            <div class="w-14 h-14 rounded-full ${ok ? 'bg-emerald-50 border-4 border-emerald-400 text-emerald-500' : 'bg-red-50 border-4 border-red-400 text-red-500'} flex items-center justify-center mb-3"><i data-lucide="${ok ? 'check' : 'x'}" class="w-7 h-7 stroke-[4]"></i></div>
-            <div class="text-2xl font-black font-mono text-slate-900">₹${ijInr(t.amount)}</div>
-            <div class="text-xs font-bold ${ok ? 'text-emerald-600' : 'text-red-600'} mt-1">${ok ? 'Payment Successful' : 'Payment Failed'}</div>
-            <div class="text-xs text-slate-500 mt-1">${ok ? 'Paid to' : 'Not paid to'} ${ijEsc(t.payee)}</div>
+            <div class="w-14 h-14 rounded-full ${ok ? 'bg-emerald-950/80 border-2 border-emerald-400 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.5)]' : 'bg-red-950/80 border-2 border-red-400 text-red-300 shadow-[0_0_20px_rgba(239,68,68,0.5)]'} flex items-center justify-center mb-3"><i data-lucide="${ok ? 'check' : 'x'}" class="w-7 h-7 stroke-[3.5]"></i></div>
+            <div class="text-2xl font-black font-mono text-white">₹${ijInr(t.amount)}</div>
+            <div class="text-xs font-bold ${ok ? 'text-emerald-400' : 'text-red-400'} mt-1 uppercase tracking-wider">${ok ? 'Payment Successful' : 'Payment Failed'}</div>
+            <div class="text-xs text-slate-400 mt-1">${ok ? 'Paid to' : 'Not paid to'} ${ijEsc(t.payee)}</div>
           </div>
-          <div class="w-full bg-slate-50/50 border border-slate-200 rounded-3xl p-4 text-left text-[11px] font-mono space-y-2.5 shadow-sm">${ijReceiptRows(t)}</div>
+          <div class="w-full bg-[#0a142c]/90 border border-cyan-500/25 rounded-3xl p-4 text-left text-[11px] font-mono space-y-2.5 shadow-lg mb-4">${ijReceiptRows(t)}</div>
         </div>`);
     }
 
+    // Link from Journey to matching backend flow
+    function ijSeeHowBtn() {
+      return isMobileView() ? '' : `<button type="button" onclick="ijSeeHow()" class="w-full py-3 rounded-3xl border border-cyan-500/40 bg-[#0c1630] text-cyan-300 font-bold text-xs shadow-[0_0_12px_rgba(6,182,212,0.2)] hover:border-cyan-400 transition-transform duration-100 active:scale-95">See how this happens</button>`;
+    }
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
       setBackendTab('pay');
@@ -3373,7 +3358,7 @@
       if (fitEl) new ResizeObserver(fitPhone).observe(fitEl);
     }
   </script>
-  <button id="home-btn" onclick="goHome()" style="display:none" class="fixed bottom-4 left-4 z-[80] px-4 py-2 rounded-xl bg-slate-900 border border-slate-600 text-white text-xs font-bold shadow-lg">&#8962; Home</button>
+  <button id="home-btn" onclick="goHome()" style="display:none" class="fixed bottom-4 left-4 z-[80] px-4 py-2 rounded-xl bg-[#091124] border border-cyan-500/40 text-cyan-300 hover:border-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.3)] text-xs font-bold transition">&#8962; Home</button>
 
 <script>
   // Deter casual inspection: block right-click and common DevTools / view-source shortcuts.
